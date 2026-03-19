@@ -1,0 +1,50 @@
+<!-- Hero -->
+<section class="bg-sf-midnight relative overflow-hidden clip-diagonal pb-16">
+  <div class="absolute inset-0 blueprint-grid-dense"></div>
+  <div class="absolute inset-0" style="background: radial-gradient(ellipse at 50% 80%, rgba(13,73,107,0.2) 0%, transparent 60%);"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-28 text-center relative">
+    <div class="flex items-center justify-center gap-3 mb-6 animate-fade-in">
+      <span class="signal-dot"></span>
+      <span class="tech-label text-sf-ocean">About</span>
+    </div>
+    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-800 text-white mb-6 animate-reveal-up">Meet the Team</h1>
+    <p class="text-lg text-white/50 max-w-2xl mx-auto animate-reveal-up delay-200">
+      Expert industrial solutions delivered with honesty, integrity and professionalism.
+    </p>
+
+    <div class="mt-8 animate-reveal-up delay-300">
+      <a routerLink="/about" class="text-sm font-display font-medium text-white/40 hover:text-white transition-colors tracking-wide">
+        &larr; Back to About
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section class="py-24 bg-sf-warm -mt-[60px] pt-32">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    @for (dept of departments; track dept.name; let di = $index) {
+      <div class="mb-16 last:mb-0" appScrollReveal [style.animation-delay.ms]="di * 100">
+        <app-section-header [title]="dept.name" />
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          @for (member of dept.members; track member.name; let i = $index) {
+            <div class="bg-sf-paper border border-sf-border/50 p-6 relative group hover:border-sf-steel/40 transition-all duration-300">
+              <div class="absolute top-0 left-0 right-0 h-0.5 bg-sf-steel scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+
+              <div class="aspect-square mb-4 overflow-hidden bg-sf-warm border border-sf-border/50">
+                <img [src]="member.photo" [alt]="member.name" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+              </div>
+
+              <h3 class="font-display text-lg font-bold text-sf-midnight">{{ member.name }}</h3>
+              <p class="tech-label text-sf-steel mt-1">{{ member.role }}</p>
+            </div>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+<app-cta-banner heading="Join Our Team" subheading="We're always looking for talented people." buttonText="View Careers" link="/about/careers" />

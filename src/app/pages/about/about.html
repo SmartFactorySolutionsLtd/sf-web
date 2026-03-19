@@ -1,0 +1,139 @@
+<!-- Hero -->
+<section class="bg-sf-midnight relative overflow-hidden clip-diagonal pb-16">
+  <div class="absolute inset-0 blueprint-grid-dense"></div>
+  <div class="absolute inset-0" style="background: radial-gradient(ellipse at 50% 80%, rgba(13,73,107,0.2) 0%, transparent 60%);"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-28 text-center relative">
+    <div class="flex items-center justify-center gap-3 mb-6 animate-fade-in">
+      <span class="signal-dot"></span>
+      <span class="tech-label text-sf-ocean">Company</span>
+    </div>
+    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-800 text-white mb-6 animate-reveal-up">About Smart Factory</h1>
+    <p class="text-lg text-white/50 max-w-2xl mx-auto animate-reveal-up delay-200">
+      Global leaders in digital transformation for manufacturing companies.
+    </p>
+
+    <!-- Sub-navigation -->
+    <div class="flex items-center justify-center gap-2 mt-10 animate-reveal-up delay-300">
+      @for (page of subPages; track page.path) {
+        <a [routerLink]="page.path"
+           class="btn btn-outline btn-sm">
+          {{ page.label }}
+        </a>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Mission -->
+<section class="py-24 bg-sf-warm -mt-[60px] pt-32">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div appScrollReveal>
+        <div class="flex items-center gap-3 mb-6">
+          <div class="h-px w-8 bg-sf-steel"></div>
+          <span class="tech-label text-sf-steel">Our Mission</span>
+        </div>
+
+        <h2 class="font-display text-3xl font-800 text-sf-midnight mb-6">
+          To Be Global Leaders in Digital Transformation for Manufacturing Companies
+        </h2>
+
+        <p class="text-sf-text-mid leading-relaxed mb-4">
+          We capture, analyse and visualise key performance indicators from the manufacturing, logistics and utility sectors, using smart <em>Industrie 4.0</em> technology.
+        </p>
+        <p class="text-sf-text-mid leading-relaxed mb-4">
+          Our smart solutions reduce the amount of time and resources required to capture and communicate critical information across your organisation and dynamically translate this data into actionable intelligence. They empower employees to take the appropriate corrective action to help eliminate losses and promotes a sense of ownership and collaboration. Our secure OPC architecture can communicate to virtually every type or brand of PLC. Smart wireless sensors facilitate the capturing of data from non-networked machines or semi-manual/manual processes. Intuitive mobile touch screen devices convert manual paperwork into lean digital workflows. Interactive smart digital displays eliminate the wasteful effort of preparing and printing paper reports and help to digitise the daily management process. Continuous product and process improvement and the elimination of waste, is a fundamental principle of lean manufacturing. Capturing and visualising data to highlight losses in real-time has been proven to change behaviour, improve throughput and quality and has been shown to improve overall productivity by 5-10%.
+        </p>
+        <p class="text-sf-text-mid leading-relaxed mb-4">
+          Our solution is built on the industry proven technology of our hardware partners Siemens and Banner and our data acquisition, analysis and visualisation tools are in use across the globe and are considered best-in-class. We integrate with existing processes and control systems to automatically capture critical data and make it actionable in real time. We help identify hidden losses, thus reducing planned and unplanned downtime, increasing productivity and maximising efficiency.
+        </p>
+        <p class="text-sf-text-mid leading-relaxed mb-4">
+          Our thorough understanding of manufacturing processes combined with expertise in IT systems and architecture allow us to securely and successfully navigate the convergence of IT and OT for our customers. We have a proven track record of delivering high value automation and data acquisition projects, for multinational companies, for more than 20 years. We can provide a software-as-a-service (SaaS) model and our out-of-the-box solutions are modular and can be easily customised to meet your needs.
+        </p>
+        <p class="text-sf-text-mid leading-relaxed">
+          We serve all manufacturing sectors from high-volume, highly automated manufacturing to high-value manumatic processes. Our customers range from global consumer goods companies to medical device manufacturers.
+        </p>
+      </div>
+
+      <div appScrollReveal class="border border-sf-border/50 bg-sf-paper aspect-square flex items-center justify-center relative">
+        <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-sf-steel/20"></div>
+        <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-sf-steel/20"></div>
+        <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-sf-steel/20"></div>
+        <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-sf-steel/20"></div>
+        <div class="text-center">
+          <svg class="w-20 h-20 mx-auto mb-4 text-sf-text-light/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+          </svg>
+          <p class="tech-label text-sf-text-light">Company Photo</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="py-24 bg-sf-midnight relative overflow-hidden">
+  <div class="absolute inset-0 blueprint-grid"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+      @for (stat of stats; track stat.label; let i = $index) {
+        <div appScrollReveal class="text-center border border-white/5 py-12 px-6 relative"
+             [style.animation-delay.ms]="i * 150">
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-sf-ocean"></div>
+          <div class="font-display text-5xl font-800 text-sf-sky mb-3">{{ stat.value }}</div>
+          <p class="tech-label text-white/40">{{ stat.label }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Capabilities -->
+<section class="py-24 bg-sf-warm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <app-section-header title="Key Capabilities" subtitle="Industry 4.0 technology powering smart manufacturing" />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      @for (cap of capabilities; track cap.title; let i = $index) {
+        <div appScrollReveal class="bg-sf-paper border border-sf-border/50 p-8 relative group hover:border-sf-steel/40 transition-all duration-300"
+             [style.animation-delay.ms]="i * 100">
+          <div class="absolute top-0 left-0 right-0 h-0.5 bg-sf-steel scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+
+          <div class="w-12 h-12 border border-sf-steel/20 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-sf-steel" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" [attr.d]="cap.icon"/>
+            </svg>
+          </div>
+
+          <h3 class="font-display text-xl font-bold text-sf-midnight mb-3">{{ cap.title }}</h3>
+          <p class="text-sf-text-mid leading-relaxed">{{ cap.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Service Model -->
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center" appScrollReveal>
+      <div class="flex items-center justify-center gap-3 mb-6">
+        <div class="h-px w-8 bg-sf-steel"></div>
+        <span class="tech-label text-sf-steel">How We Deliver</span>
+        <div class="h-px w-8 bg-sf-steel"></div>
+      </div>
+
+      <h2 class="font-display text-3xl font-800 text-sf-midnight mb-6">Modular SaaS Solutions</h2>
+      <p class="text-sf-text-mid leading-relaxed mb-4">
+        We offer Software-as-a-Service with modular, customizable out-of-the-box solutions. From high-volume automated manufacturing through high-value manumatic processes, we serve global consumer goods and medical device manufacturers.
+      </p>
+      <p class="text-sf-text-mid leading-relaxed">
+        With technology partners Siemens and Banner, and over 20 years delivering automation and data acquisition projects for multinational companies, we bring proven expertise to every engagement.
+      </p>
+    </div>
+  </div>
+</section>
+
+<app-cta-banner heading="Let's Work Together" subheading="Partner with us to bring Industry 4.0 to your factory floor." buttonText="Contact Us" link="/contact" />
