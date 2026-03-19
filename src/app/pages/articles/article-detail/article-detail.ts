@@ -10,7 +10,7 @@ import { ScrollReveal } from '../../../shared/directives/scroll-reveal';
   template: `
     @if (article(); as a) {
       <!-- Compact header -->
-      <div class="bg-sf-midnight">
+      <div class="bg-sf-blue">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between">
           <a routerLink="/articles" class="text-white/30 hover:text-white text-sm inline-flex items-center gap-2 transition-colors font-mono tracking-wide">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -19,7 +19,6 @@ import { ScrollReveal } from '../../../shared/directives/scroll-reveal';
             Articles
           </a>
           <div class="flex items-center gap-2">
-            <span class="signal-dot !w-[5px] !h-[5px]"></span>
             <span class="tech-label text-white/20">{{ a.createdAt | date:'mediumDate' }}</span>
           </div>
         </div>
@@ -27,52 +26,47 @@ import { ScrollReveal } from '../../../shared/directives/scroll-reveal';
 
       <!-- Cover image -->
       @if (a.imageUrl) {
-        <div class="bg-sf-midnight">
+        <div class="bg-sf-blue">
           <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 animate-fade-in">
             <div class="relative overflow-hidden border border-white/10">
               <img [src]="a.imageUrl" [alt]="a.title"
                    class="w-full h-auto block">
-              <!-- Corner marks -->
-              <div class="absolute top-3 left-3 w-5 h-5 border-t border-l border-white/20"></div>
-              <div class="absolute top-3 right-3 w-5 h-5 border-t border-r border-white/20"></div>
-              <div class="absolute bottom-3 left-3 w-5 h-5 border-b border-l border-white/20"></div>
-              <div class="absolute bottom-3 right-3 w-5 h-5 border-b border-r border-white/20"></div>
             </div>
           </div>
         </div>
       }
 
       <!-- Title block -->
-      <div class="bg-sf-warm clip-diagonal-reverse pt-20 -mt-1">
+      <div class="bg-white pt-20">
         <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16">
           <!-- Tags -->
           <div class="flex flex-wrap gap-2 mb-6 animate-reveal-up">
             @for (tag of a.tags; track tag) {
-              <span class="tech-label text-sf-steel bg-sf-steel/8 border border-sf-steel/15 px-2.5 py-1">{{ tag }}</span>
+              <span class="tech-label text-sf-blue bg-sf-blue/8 border border-sf-blue/15 px-2.5 py-1">{{ tag }}</span>
             }
           </div>
 
-          <h1 class="font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-800 text-sf-midnight leading-[1.15] mb-6 animate-reveal-up delay-100">{{ a.title }}</h1>
+          <h1 class="font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-800 text-sf-blue leading-[1.15] mb-6 animate-reveal-up delay-100">{{ a.title }}</h1>
 
           <!-- Author line -->
           <div class="flex items-center gap-4 animate-reveal-up delay-200">
-            <div class="w-8 h-0.5 bg-sf-steel/30"></div>
+            <div class="w-8 h-0.5 bg-sf-blue/30"></div>
             <span class="font-display text-sm text-sf-text-mid tracking-wide">{{ a.author }}</span>
           </div>
         </div>
       </div>
 
       <!-- Article body -->
-      <div class="bg-sf-paper">
+      <div class="bg-white">
         <article class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16" appScrollReveal>
           <div class="article-prose" [innerHTML]="a.content"></div>
         </article>
 
         <!-- Footer nav -->
         <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-          <div class="border-t border-sf-border/50 pt-8">
+          <div class="border-t border-sf-grey/20 pt-8">
             <a routerLink="/articles"
-               class="inline-flex items-center gap-3 text-sf-steel hover:text-sf-ocean font-display font-bold text-sm tracking-wide transition-colors group">
+               class="inline-flex items-center gap-3 text-sf-blue hover:text-sf-blue-light font-display font-bold text-sm tracking-wide transition-colors group">
               <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
               </svg>
@@ -82,16 +76,15 @@ import { ScrollReveal } from '../../../shared/directives/scroll-reveal';
         </div>
       </div>
     } @else if (loading()) {
-      <section class="py-32 text-center bg-sf-paper">
+      <section class="py-32 text-center bg-white">
         <div class="flex items-center justify-center gap-3">
-          <span class="signal-dot"></span>
           <span class="tech-label text-sf-text-light">Loading article</span>
         </div>
       </section>
     } @else {
-      <section class="py-32 text-center bg-sf-paper">
-        <h1 class="font-display text-2xl font-800 text-sf-midnight mb-4">Article Not Found</h1>
-        <a routerLink="/articles" class="text-sf-steel hover:text-sf-ocean transition-colors font-display text-sm tracking-wide">Back to Articles</a>
+      <section class="py-32 text-center bg-white">
+        <h1 class="font-display text-2xl font-800 text-sf-blue mb-4">Article Not Found</h1>
+        <a routerLink="/articles" class="text-sf-blue hover:text-sf-blue-light transition-colors font-display text-sm tracking-wide">Back to Articles</a>
       </section>
     }
   `,
@@ -111,7 +104,7 @@ import { ScrollReveal } from '../../../shared/directives/scroll-reveal';
       font-family: var(--font-display);
       font-size: 1.35rem;
       font-weight: 800;
-      color: var(--color-sf-midnight);
+      color: var(--color-sf-blue);
       margin-top: 2.5rem;
       margin-bottom: 0.75rem;
       letter-spacing: -0.01em;
@@ -126,7 +119,7 @@ import { ScrollReveal } from '../../../shared/directives/scroll-reveal';
       top: 0.2em;
       bottom: 0.2em;
       width: 3px;
-      background: var(--color-sf-steel);
+      background: var(--color-sf-blue);
     }
 
     :host ::ng-deep .article-prose p {
@@ -154,28 +147,28 @@ import { ScrollReveal } from '../../../shared/directives/scroll-reveal';
       top: 0.7em;
       width: 6px;
       height: 6px;
-      background: var(--color-sf-steel);
+      background: var(--color-sf-blue);
     }
 
     :host ::ng-deep .article-prose strong {
-      color: var(--color-sf-midnight);
+      color: var(--color-sf-blue);
       font-weight: 700;
     }
 
     :host ::ng-deep .article-prose em {
       font-style: italic;
-      color: var(--color-sf-steel);
+      color: var(--color-sf-blue);
     }
 
     :host ::ng-deep .article-prose a {
-      color: var(--color-sf-ocean);
+      color: var(--color-sf-accent);
       text-decoration: underline;
       text-underline-offset: 3px;
       transition: color 0.2s;
     }
 
     :host ::ng-deep .article-prose a:hover {
-      color: var(--color-sf-steel);
+      color: var(--color-sf-blue);
     }
   `]
 })
