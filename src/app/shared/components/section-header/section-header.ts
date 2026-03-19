@@ -11,7 +11,7 @@ import { Component, input } from '@angular/core';
         </span>
       </div>
       <h2 class="font-display text-3xl sm:text-4xl font-800 leading-tight"
-          [class]="theme() === 'dark' ? 'text-white' : 'text-sf-text'">
+          [class]="theme() === 'dark' ? 'text-white' : 'text-sf-blue'">
         {{ title() }}
       </h2>
       @if (subtitle()) {

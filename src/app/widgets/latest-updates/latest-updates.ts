@@ -26,7 +26,7 @@ import { SectionHeader } from '../../shared/components/section-header/section-he
                     </svg>
                   </div>
                   <div class="min-w-0">
-                    <h3 class="font-display font-bold text-sf-text group-hover:text-sf-blue transition-colors mb-1">{{ post.title }}</h3>
+                    <h3 class="font-display font-bold text-sf-blue group-hover:text-sf-blue-light transition-colors mb-1">{{ post.title }}</h3>
                     <p class="text-sm text-sf-text-mid line-clamp-2">{{ post.summary }}</p>
                     <p class="font-mono text-[11px] text-sf-text-light mt-3 tracking-wide">{{ post.createdAt | date:'mediumDate' }}</p>
                   </div>

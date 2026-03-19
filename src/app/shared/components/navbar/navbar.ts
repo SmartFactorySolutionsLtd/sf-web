@@ -18,7 +18,7 @@ interface NavLink {
     <div class="flex justify-between items-center h-16">
       <!-- Logo -->
       <a routerLink="/" class="shrink-0">
-        <img src="assets/logo.png" alt="Smart Factory" class="h-14 w-auto py-1">
+        <img src="assets/logo.png" alt="Smart Factory" class="h-20 w-auto py-1">
       </a>
 
       <!-- Desktop nav -->

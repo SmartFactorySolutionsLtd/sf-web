@@ -1,34 +1,24 @@
 <!-- Hero -->
-<section class="bg-sf-midnight relative overflow-hidden clip-diagonal pb-16">
-  <div class="absolute inset-0 blueprint-grid-dense"></div>
-  <div class="absolute inset-0" style="background: radial-gradient(ellipse at 50% 80%, rgba(13,73,107,0.2) 0%, transparent 60%);"></div>
-
+<section class="bg-sf-blue relative overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-28 text-center relative">
     <img src="assets/waps/WAPS-logo-white-no-text.svg" alt="WAPS" class="h-16 mx-auto mb-8 opacity-30 animate-fade-in" />
-    <div class="flex items-center justify-center gap-3 mb-6 animate-fade-in">
-      <span class="signal-dot"></span>
-      <span class="tech-label text-sf-ocean">Platform Overview</span>
-    </div>
+    <span class="tech-label text-white/60 mb-6 block">Platform Overview</span>
     <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-800 text-white mb-6 animate-reveal-up">WAPS</h1>
-    <p class="text-lg text-white/50 max-w-2xl mx-auto animate-reveal-up delay-200">
+    <p class="text-lg text-white/60 max-w-2xl mx-auto animate-reveal-up delay-200">
       The Work Area Performance System — a complete IIoT platform for Industry 4.0 manufacturing environments.
     </p>
 
     <div class="mt-14 animate-reveal-up delay-300 max-w-5xl mx-auto">
-      <div class="relative border border-white/10 rounded-sm shadow-2xl shadow-sf-ocean/10 overflow-hidden">
-        <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-sf-ocean/40"></div>
-        <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-sf-ocean/40"></div>
-        <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-sf-ocean/40"></div>
-        <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-sf-ocean/40"></div>
+      <div class="relative shadow-2xl rounded-lg overflow-hidden">
         <app-image-lightbox src="assets/waps/screenshots/dtvr.png" alt="WAPS Downtime Viewer — real-time production dashboard" imgClass="w-full" />
       </div>
-      <p class="tech-label text-white/30 mt-4">Downtime Viewer — Real-time Production Dashboard</p>
+      <p class="tech-label text-white/40 mt-4">Downtime Viewer — Real-time Production Dashboard</p>
     </div>
   </div>
 </section>
 
 <!-- Capabilities -->
-<section class="py-24 bg-sf-warm -mt-[60px] pt-32">
+<section class="bg-white py-24">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <app-section-header title="WAPS Capabilities" subtitle="From design to operational excellence, WAPS covers the full manufacturing data lifecycle" />
 
@@ -37,24 +27,20 @@
         <div appScrollReveal class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div [class]="i % 2 !== 0 ? 'lg:order-2' : ''">
             <div class="flex items-center gap-3 mb-4">
-              <span class="tech-label text-sf-steel">0{{ i + 1 }}</span>
-              <div class="h-px w-6 bg-sf-steel/30"></div>
-              <div class="w-10 h-10 border border-sf-steel/20 flex items-center justify-center">
-                <svg class="w-5 h-5 text-sf-steel" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <span class="tech-label text-sf-blue">0{{ i + 1 }}</span>
+              <div class="h-px w-6 bg-sf-blue/30"></div>
+              <div class="w-10 h-10 border border-sf-blue/20 flex items-center justify-center">
+                <svg class="w-5 h-5 text-sf-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" [attr.d]="cap.icon"/>
                 </svg>
               </div>
             </div>
-            <h3 class="font-display text-2xl font-800 text-sf-midnight mb-4">{{ cap.title }}</h3>
+            <h3 class="font-display text-2xl font-800 text-sf-blue mb-4">{{ cap.title }}</h3>
             <p class="text-sf-text-mid leading-relaxed">{{ cap.description }}</p>
           </div>
 
           <div [class]="i % 2 !== 0 ? 'lg:order-1' : ''"
-               class="border border-sf-border/50 bg-sf-midnight relative overflow-hidden rounded-sm shadow-lg">
-            <div class="absolute top-0 left-0 w-3 h-3 border-t border-l border-sf-steel/30 z-10"></div>
-            <div class="absolute top-0 right-0 w-3 h-3 border-t border-r border-sf-steel/30 z-10"></div>
-            <div class="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-sf-steel/30 z-10"></div>
-            <div class="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-sf-steel/30 z-10"></div>
+               class="shadow-lg rounded-lg overflow-hidden">
             <app-image-lightbox [src]="cap.image" [alt]="cap.title + ' — WAPS module screenshot'" imgClass="w-full" />
           </div>
         </div>
@@ -64,17 +50,15 @@
 </section>
 
 <!-- Features Grid -->
-<section class="py-24 bg-sf-midnight relative overflow-hidden">
-  <div class="absolute inset-0 blueprint-grid"></div>
-
+<section class="py-24 bg-sf-blue relative overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
     <app-section-header title="Platform Features" subtitle="Everything you need to optimise your manufacturing operations" theme="dark" />
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       @for (feature of features; track feature; let i = $index) {
-        <div appScrollReveal class="border border-white/5 p-5 flex items-start gap-3 hover:border-sf-ocean/30 transition-colors"
+        <div appScrollReveal class="border border-white/10 p-5 flex items-start gap-3 hover:border-white/30 transition-colors"
              [style.animation-delay.ms]="i * 80">
-          <div class="w-1.5 h-1.5 mt-2 bg-sf-ocean shrink-0"></div>
+          <div class="w-1.5 h-1.5 mt-2 bg-white shrink-0"></div>
           <span class="text-sm font-display text-white/70">{{ feature }}</span>
         </div>
       }
@@ -83,16 +67,16 @@
 </section>
 
 <!-- OPC UA Integration -->
-<section class="py-24 bg-sf-warm">
+<section class="py-24 bg-sf-grey-light">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
       <div appScrollReveal>
         <div class="flex items-center gap-3 mb-6">
-          <div class="h-px w-8 bg-sf-steel"></div>
-          <span class="tech-label text-sf-steel">Integration</span>
+          <div class="h-px w-8 bg-sf-blue"></div>
+          <span class="tech-label text-sf-blue">Integration</span>
         </div>
 
-        <h2 class="font-display text-3xl font-800 text-sf-midnight mb-6">Seamless OPC UA Integration</h2>
+        <h2 class="font-display text-3xl font-800 text-sf-blue mb-6">Seamless OPC UA Integration</h2>
 
         <p class="text-sf-text-mid leading-relaxed mb-4">
           WAPS connects to your existing equipment using OPC UA — the industry standard for interoperability in manufacturing. No proprietary lock-in, no complex middleware.
@@ -104,15 +88,14 @@
         <ul class="space-y-3 mt-6">
           @for (item of opcFeatures; track item) {
             <li class="flex items-center gap-3 text-sm text-sf-text-mid">
-              <div class="w-1.5 h-1.5 bg-sf-steel shrink-0"></div>
+              <div class="w-1.5 h-1.5 bg-sf-blue shrink-0"></div>
               {{ item }}
             </li>
           }
         </ul>
       </div>
 
-      <div appScrollReveal class="bg-sf-midnight border border-white/10 p-12 flex flex-col items-center justify-center relative">
-        <div class="absolute inset-0 blueprint-grid-dense"></div>
+      <div appScrollReveal class="bg-sf-blue border border-white/10 p-12 flex flex-col items-center justify-center relative">
         <div class="relative text-center">
           <img src="assets/waps/WAPS-logo-white.svg" alt="WAPS" class="h-24 mx-auto mb-6 opacity-20" />
           <div class="font-display text-4xl font-800 text-white/5 mb-2">OPC UA</div>

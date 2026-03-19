@@ -8,21 +8,17 @@ import { ArticleService } from '../../../core/services/article.service';
   imports: [RouterLink, DatePipe],
   template: `
     <!-- Hero -->
-    <section class="bg-sf-midnight relative overflow-hidden clip-diagonal pb-16">
-      <div class="absolute inset-0 blueprint-grid-dense"></div>
+    <section class="bg-sf-blue relative overflow-hidden">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-28 text-center relative">
-        <div class="flex items-center justify-center gap-3 mb-6 animate-fade-in">
-          <span class="signal-dot"></span>
-          <span class="tech-label text-sf-ocean">Insights</span>
-        </div>
+        <span class="tech-label text-white/60 mb-6 block">Insights</span>
         <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-800 text-white mb-6 animate-reveal-up">Articles</h1>
-        <p class="text-lg text-white/50 max-w-2xl mx-auto animate-reveal-up delay-200">
+        <p class="text-lg text-white/60 max-w-2xl mx-auto animate-reveal-up delay-200">
           Insights, news, and thought leadership from the Smart Factory team.
         </p>
       </div>
     </section>
 
-    <section class="py-20 -mt-[60px] pt-32 bg-sf-warm">
+    <section class="py-20 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <!-- Tag filters -->
@@ -31,16 +27,16 @@ import { ArticleService } from '../../../core/services/article.service';
             <button
               (click)="selectedTag.set(null)"
               [class]="selectedTag() === null
-                ? 'tech-label bg-sf-steel text-white border border-sf-steel px-3 py-1 cursor-pointer transition-colors duration-150'
-                : 'tech-label text-sf-steel bg-sf-steel/8 border border-sf-steel/15 px-3 py-1 cursor-pointer hover:bg-sf-steel/15 transition-colors duration-150'">
+                ? 'tech-label bg-sf-blue text-white border border-sf-blue px-3 py-1 cursor-pointer transition-colors duration-150'
+                : 'tech-label text-sf-blue bg-sf-blue/8 border border-sf-blue/15 px-3 py-1 cursor-pointer hover:bg-sf-blue/15 transition-colors duration-150'">
               All
             </button>
             @for (tag of allTags(); track tag) {
               <button
                 (click)="selectedTag.set(tag)"
                 [class]="selectedTag() === tag
-                  ? 'tech-label bg-sf-steel text-white border border-sf-steel px-3 py-1 cursor-pointer transition-colors duration-150'
-                  : 'tech-label text-sf-steel bg-sf-steel/8 border border-sf-steel/15 px-3 py-1 cursor-pointer hover:bg-sf-steel/15 transition-colors duration-150'">
+                  ? 'tech-label bg-sf-blue text-white border border-sf-blue px-3 py-1 cursor-pointer transition-colors duration-150'
+                  : 'tech-label text-sf-blue bg-sf-blue/8 border border-sf-blue/15 px-3 py-1 cursor-pointer hover:bg-sf-blue/15 transition-colors duration-150'">
                 {{ tag }}
               </button>
             }
@@ -51,19 +47,19 @@ import { ArticleService } from '../../../core/services/article.service';
           <!-- Skeleton loader -->
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             @for (i of [1, 2, 3]; track i) {
-              <div class="bg-sf-paper border border-sf-border/50 overflow-hidden animate-pulse" [style.animation-delay.ms]="i * 150">
-                <div class="h-48 bg-sf-warm-dark"></div>
+              <div class="bg-white border border-sf-grey/20 overflow-hidden animate-pulse" [style.animation-delay.ms]="i * 150">
+                <div class="h-48 bg-sf-grey-light"></div>
                 <div class="p-6 space-y-3">
                   <div class="flex gap-2">
-                    <div class="h-4 w-16 bg-sf-warm-dark rounded-sm"></div>
-                    <div class="h-4 w-12 bg-sf-warm-dark rounded-sm"></div>
+                    <div class="h-4 w-16 bg-sf-grey-light rounded-sm"></div>
+                    <div class="h-4 w-12 bg-sf-grey-light rounded-sm"></div>
                   </div>
-                  <div class="h-5 w-3/4 bg-sf-warm-dark rounded-sm"></div>
+                  <div class="h-5 w-3/4 bg-sf-grey-light rounded-sm"></div>
                   <div class="space-y-2">
-                    <div class="h-3 w-full bg-sf-warm-dark rounded-sm"></div>
-                    <div class="h-3 w-5/6 bg-sf-warm-dark rounded-sm"></div>
+                    <div class="h-3 w-full bg-sf-grey-light rounded-sm"></div>
+                    <div class="h-3 w-5/6 bg-sf-grey-light rounded-sm"></div>
                   </div>
-                  <div class="h-3 w-24 bg-sf-warm-dark rounded-sm mt-4"></div>
+                  <div class="h-3 w-24 bg-sf-grey-light rounded-sm mt-4"></div>
                 </div>
               </div>
             }
@@ -76,10 +72,10 @@ import { ArticleService } from '../../../core/services/article.service';
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @for (article of filteredArticles(); track article.id; let i = $index) {
               <a [routerLink]="['/articles', article.slug]"
-                 class="group block bg-sf-paper border border-sf-border/50 overflow-hidden hover:border-sf-steel/40 transition-colors duration-200 relative"
+                 class="group block bg-white border border-sf-grey/20 overflow-hidden hover:border-sf-blue/40 transition-colors duration-200 relative"
                  [style.animation-delay.ms]="i * 80">
-                <div class="absolute top-0 left-0 right-0 h-0.5 bg-sf-steel scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left will-change-transform"></div>
-                <div class="bg-sf-warm-dark h-48 flex items-center justify-center overflow-hidden">
+                <div class="absolute top-0 left-0 right-0 h-0.5 bg-sf-blue scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left will-change-transform"></div>
+                <div class="bg-sf-grey-light h-48 flex items-center justify-center overflow-hidden">
                   @if (article.imageUrl) {
                     <img [src]="article.imageUrl" [alt]="article.title" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-200 will-change-transform">
                   } @else {
@@ -91,10 +87,10 @@ import { ArticleService } from '../../../core/services/article.service';
                 <div class="p-6">
                   <div class="flex flex-wrap gap-2 mb-3">
                     @for (tag of article.tags; track tag) {
-                      <span class="tech-label text-sf-steel bg-sf-steel/8 border border-sf-steel/15 px-2 py-0.5">{{ tag }}</span>
+                      <span class="tech-label text-sf-blue bg-sf-blue/8 border border-sf-blue/15 px-2 py-0.5">{{ tag }}</span>
                     }
                   </div>
-                  <h2 class="font-display font-bold text-lg text-sf-midnight group-hover:text-sf-steel transition-colors duration-200 mb-2">{{ article.title }}</h2>
+                  <h2 class="font-display font-bold text-lg text-sf-blue group-hover:text-sf-blue-light transition-colors duration-200 mb-2">{{ article.title }}</h2>
                   <p class="text-sm text-sf-text-mid leading-relaxed line-clamp-3">{{ article.summary }}</p>
                   <p class="font-mono text-[11px] text-sf-text-light mt-4 tracking-wide">{{ article.createdAt | date:'mediumDate' }}</p>
                 </div>

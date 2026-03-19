@@ -1,15 +1,9 @@
 <!-- Hero -->
-<section class="bg-sf-midnight relative overflow-hidden clip-diagonal pb-16">
-  <div class="absolute inset-0 blueprint-grid-dense"></div>
-  <div class="absolute inset-0" style="background: radial-gradient(ellipse at 50% 80%, rgba(13,73,107,0.2) 0%, transparent 60%);"></div>
-
+<section class="bg-sf-blue relative overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-28 text-center relative">
-    <div class="flex items-center justify-center gap-3 mb-6 animate-fade-in">
-      <span class="signal-dot"></span>
-      <span class="tech-label text-sf-ocean">About</span>
-    </div>
+    <span class="tech-label text-white/60 mb-6 block">About</span>
     <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-800 text-white mb-6 animate-reveal-up">Technology Partners</h1>
-    <p class="text-lg text-white/50 max-w-2xl mx-auto animate-reveal-up delay-200">
+    <p class="text-lg text-white/60 max-w-2xl mx-auto animate-reveal-up delay-200">
       Working with industry leaders to deliver world-class manufacturing solutions.
     </p>
 
@@ -22,23 +16,21 @@
 </section>
 
 <!-- Partners -->
-<section class="py-24 bg-sf-warm -mt-[60px] pt-32">
+<section class="py-24 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <app-section-header title="Our Partners" subtitle="Trusted by leading technology providers worldwide" />
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       @for (partner of partners; track partner.name; let i = $index) {
-        <div appScrollReveal class="bg-sf-paper border border-sf-border/50 p-8 relative group hover:border-sf-steel/40 transition-all duration-300"
+        <div appScrollReveal class="bg-white border border-sf-grey/20 p-8 relative group hover:border-sf-blue/40 transition-all duration-300"
              [style.animation-delay.ms]="i * 100">
-          <div class="absolute top-0 left-0 right-0 h-0.5 bg-sf-steel scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-
           <div class="flex items-start gap-6">
             <div class="w-24 h-16 flex items-center justify-center shrink-0">
               <img [src]="partner.logo" [alt]="partner.name" class="max-w-full max-h-full object-contain" />
             </div>
 
             <div>
-              <h3 class="font-display text-xl font-bold text-sf-midnight mb-3">{{ partner.name }}</h3>
+              <h3 class="font-display text-xl font-bold text-sf-blue mb-3">{{ partner.name }}</h3>
               <p class="text-sf-text-mid leading-relaxed">{{ partner.description }}</p>
             </div>
           </div>
