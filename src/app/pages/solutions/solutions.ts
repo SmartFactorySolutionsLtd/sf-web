@@ -59,4 +59,11 @@ export class Solutions {
     'Secure, encrypted data transfer',
     'Brownfield and greenfield deployments',
   ];
+
+  integrations = [
+    { name: 'Power BI', logo: 'assets/integrations/power-bi.png', description: 'Export and visualise WAPS data in Microsoft Power BI dashboards for advanced business intelligence.' },
+    { name: 'SAP', logo: 'assets/integrations/sap.png', description: 'Bi-directional integration with SAP ERP for seamless production planning and reporting.' },
+    { name: 'PAS-X', logo: 'assets/integrations/korber.png', description: 'Connect with Körber PAS-X MES for pharmaceutical and biotech manufacturing compliance.' },
+    { name: 'Oracle', logo: 'assets/integrations/oracle.png', description: 'Integrate with Oracle Manufacturing Cloud for enterprise-wide visibility and control.' },
+  ];
 }

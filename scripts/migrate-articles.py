@@ -301,7 +301,7 @@ def main():
             slug=article["slug"],
             summary=article["summary"],
             content_ast=article["content"],
-            author="Smart Factory Team",
+            author="SmartFactory Team",
             tags=article["tags"],
             published=True,
             cover_image_id=cover_id,

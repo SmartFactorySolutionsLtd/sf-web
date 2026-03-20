@@ -11,7 +11,8 @@ export class ScrollReveal implements OnInit, OnDestroy {
   ngOnInit() {
     this.el.nativeElement.style.opacity = '0';
     this.el.nativeElement.style.transform = 'translateY(20px)';
-    this.el.nativeElement.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    this.el.nativeElement.style.transition = 'opacity 1s ease, transform 1s ease';
+    this.el.nativeElement.style.transitionDelay = '0.15s';
 
     this.observer = new IntersectionObserver(
       ([entry]) => {

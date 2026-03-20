@@ -104,7 +104,7 @@ export class ArticleService {
       summary: raw.summary,
       content: raw.content?.html ?? '',
       imageUrl: raw.coverImage?.url ?? '',
-      author: raw.author ?? 'Smart Factory Team',
+      author: raw.author ?? 'SmartFactory Team',
       tags: raw.tags ?? [],
       published: true,
       createdAt: raw.createdAt,

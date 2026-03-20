@@ -1,15 +1,12 @@
 <!-- Hero -->
-<section class="bg-sf-blue relative overflow-hidden">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-28 text-center relative">
-    <span class="tech-label text-white/60 mb-6 block">Get in Touch</span>
+<section class="hero-gradient relative overflow-hidden -mt-16 pt-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 text-center relative">
+    <span class="tech-label text-sf-accent mb-6 block">Get in Touch</span>
     <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-800 text-white mb-6">Contact Us</h1>
-    <p class="text-lg text-white/60 max-w-2xl mx-auto">
-      Ready to transform your manufacturing operations? Get in touch with our team.
-    </p>
   </div>
 </section>
 
-<section class="py-24 bg-white">
+<section class="py-24">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
       <!-- Form -->
@@ -37,7 +34,7 @@
                      class="w-full px-4 py-3 bg-white border border-sf-grey/20 focus:border-sf-blue outline-none transition-colors font-body text-sf-text placeholder:text-sf-text-light/50"
                      placeholder="Your name">
               @if (form.controls.name.touched && form.controls.name.errors) {
-                <p class="text-red-500 text-xs mt-1.5 font-mono">Required field</p>
+                <p class="text-red-500 text-sm mt-1.5 font-mono">Required field</p>
               }
             </div>
 
@@ -47,7 +44,7 @@
                      class="w-full px-4 py-3 bg-white border border-sf-grey/20 focus:border-sf-blue outline-none transition-colors font-body text-sf-text placeholder:text-sf-text-light/50"
                      placeholder="you@company.com">
               @if (form.controls.email.touched && form.controls.email.errors) {
-                <p class="text-red-500 text-xs mt-1.5 font-mono">
+                <p class="text-red-500 text-sm mt-1.5 font-mono">
                   {{ form.controls.email.errors['required'] ? 'Required field' : 'Invalid email format' }}
                 </p>
               }
@@ -74,14 +71,14 @@
                         class="w-full px-4 py-3 bg-white border border-sf-grey/20 focus:border-sf-blue outline-none transition-colors font-body text-sf-text resize-none placeholder:text-sf-text-light/50"
                         placeholder="Tell us about your project..."></textarea>
               @if (form.controls.message.touched && form.controls.message.errors) {
-                <p class="text-red-500 text-xs mt-1.5 font-mono">Required field</p>
+                <p class="text-red-500 text-sm mt-1.5 font-mono">Required field</p>
               }
             </div>
 
             @if (error()) {
               <div class="bg-red-500/5 border border-red-500/20 p-4 text-sm text-red-500">
                 Something went wrong. Please try again or email us directly at
-                <a href="mailto:info@smartfactory.ie" class="font-bold hover:underline font-mono text-xs">info&#64;smartfactory.ie</a>
+                <a href="mailto:info@smartfactory.ie" class="font-bold hover:underline font-mono text-sm">info&#64;smartfactory.ie</a>
               </div>
             }
 
@@ -157,7 +154,7 @@
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2423.5!2d-8.5741!3d52.6738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x485b5e5cf1b0f15f%3A0x2a6c1dbf8c640e0!2sNexus%20Innovation%20Centre!5e0!3m2!1sen!2sie!4v1700000000000!5m2!1sen!2sie"
             width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            title="Smart Factory location - Nexus Innovation Centre, University of Limerick">
+            title="SmartFactory location - Nexus Innovation Centre, University of Limerick">
           </iframe>
         </div>
       </div>

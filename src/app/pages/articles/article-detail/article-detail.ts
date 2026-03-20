@@ -9,70 +9,55 @@ import { ScrollReveal } from '../../../shared/directives/scroll-reveal';
   imports: [RouterLink, DatePipe, ScrollReveal],
   template: `
     @if (article(); as a) {
-      <!-- Compact header -->
-      <div class="bg-sf-blue">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between">
-          <a routerLink="/articles" class="text-white/30 hover:text-white text-sm inline-flex items-center gap-2 transition-colors font-mono tracking-wide">
+      <!-- Hero strip for navbar background -->
+      <div class="hero-gradient -mt-16 pt-16">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+          <a routerLink="/articles" class="text-white/60 hover:text-white text-sm inline-flex items-center gap-2 transition-colors font-mono tracking-wide">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
             </svg>
             Articles
           </a>
-          <div class="flex items-center gap-2">
-            <span class="tech-label text-white/20">{{ a.createdAt | date:'mediumDate' }}</span>
-          </div>
+          <span class="tech-label text-white/40">{{ a.createdAt | date:'mediumDate' }}</span>
         </div>
       </div>
 
       <!-- Cover image -->
       @if (a.imageUrl) {
-        <div class="bg-sf-blue">
-          <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 animate-fade-in">
-            <div class="relative overflow-hidden border border-white/10">
-              <img [src]="a.imageUrl" [alt]="a.title"
-                   class="w-full h-auto block">
-            </div>
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 animate-fade-in">
+          <div class="relative overflow-hidden rounded-lg">
+            <img [src]="a.imageUrl" [alt]="a.title" class="w-full h-auto block">
           </div>
         </div>
       }
 
-      <!-- Title block -->
-      <div class="bg-white pt-20">
-        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16">
-          <!-- Tags -->
-          <div class="flex flex-wrap gap-2 mb-6 animate-reveal-up">
-            @for (tag of a.tags; track tag) {
-              <span class="tech-label text-sf-blue bg-sf-blue/8 border border-sf-blue/15 px-2.5 py-1">{{ tag }}</span>
-            }
-          </div>
-
-          <h1 class="font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-800 text-sf-blue leading-[1.15] mb-6 animate-reveal-up delay-100">{{ a.title }}</h1>
-
-          <!-- Author line -->
-          <div class="flex items-center gap-4 animate-reveal-up delay-200">
-            <div class="w-8 h-0.5 bg-sf-blue/30"></div>
-            <span class="font-display text-sm text-sf-text-mid tracking-wide">{{ a.author }}</span>
-          </div>
+      <!-- Title + Body -->
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-12">
+        <div class="flex flex-wrap gap-2 mb-5">
+          @for (tag of a.tags; track tag) {
+            <span class="tech-label text-sf-accent bg-sf-accent/8 border border-sf-accent/15 px-2.5 py-1">{{ tag }}</span>
+          }
         </div>
-      </div>
 
-      <!-- Article body -->
-      <div class="bg-white">
-        <article class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16" appScrollReveal>
+        <h1 class="font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-800 text-sf-blue leading-[1.15] mb-5">{{ a.title }}</h1>
+
+        <div class="flex items-center gap-4 mb-12">
+          <div class="w-8 h-0.5 bg-sf-accent"></div>
+          <span class="font-display text-sm text-sf-text-mid tracking-wide">{{ a.author }}</span>
+        </div>
+
+        <article appScrollReveal>
           <div class="article-prose" [innerHTML]="a.content"></div>
         </article>
 
-        <!-- Footer nav -->
-        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-          <div class="border-t border-sf-grey/20 pt-8">
-            <a routerLink="/articles"
-               class="inline-flex items-center gap-3 text-sf-blue hover:text-sf-blue-light font-display font-bold text-sm tracking-wide transition-colors group">
-              <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-              </svg>
-              ALL ARTICLES
-            </a>
-          </div>
+        <div class="border-t border-sf-grey/20 pt-8 mt-16">
+          <a routerLink="/articles"
+             class="inline-flex items-center gap-3 text-sf-blue hover:text-sf-accent font-display font-bold text-sm tracking-wide transition-colors group">
+            <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+            ALL ARTICLES
+          </a>
         </div>
       </div>
     } @else if (loading()) {
@@ -84,7 +69,7 @@ import { ScrollReveal } from '../../../shared/directives/scroll-reveal';
     } @else {
       <section class="py-32 text-center bg-white">
         <h1 class="font-display text-2xl font-800 text-sf-blue mb-4">Article Not Found</h1>
-        <a routerLink="/articles" class="text-sf-blue hover:text-sf-blue-light transition-colors font-display text-sm tracking-wide">Back to Articles</a>
+        <a routerLink="/articles" class="text-sf-blue hover:text-sf-accent transition-colors font-display text-sm tracking-wide">Back to Articles</a>
       </section>
     }
   `,

@@ -1,12 +1,8 @@
 <!-- Hero -->
-<section class="bg-sf-blue relative overflow-hidden">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-28 text-center relative">
-    <span class="tech-label text-white/60 mb-6 block">About</span>
+<section class="hero-gradient relative overflow-hidden -mt-16 pt-16 min-h-[220px] flex items-center">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 text-center relative w-full">
+    <span class="tech-label text-sf-accent mb-6 block">About</span>
     <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-800 text-white mb-6 animate-reveal-up">Meet the Team</h1>
-    <p class="text-lg text-white/60 max-w-2xl mx-auto animate-reveal-up delay-200">
-      Expert industrial solutions delivered with honesty, integrity and professionalism.
-    </p>
-
     <div class="mt-8 animate-reveal-up delay-300">
       <a routerLink="/about" class="text-sm font-display font-medium text-white/40 hover:text-white transition-colors tracking-wide">
         &larr; Back to About
@@ -16,7 +12,7 @@
 </section>
 
 <!-- Team -->
-<section class="py-24 bg-white">
+<section class="py-24">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     @for (dept of departments; track dept.name; let di = $index) {
       <div class="mb-16 last:mb-0" appScrollReveal [style.animation-delay.ms]="di * 100">
@@ -26,7 +22,7 @@
           @for (member of dept.members; track member.name; let i = $index) {
             <div class="bg-white border border-sf-grey/20 p-6 relative group hover:border-sf-blue/40 transition-all duration-300">
               <div class="aspect-square mb-4 overflow-hidden bg-sf-grey-light border border-sf-grey/20">
-                <img [src]="member.photo" [alt]="member.name" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                <img [src]="member.photo" [alt]="member.name" class="w-full h-full object-cover" />
               </div>
 
               <h3 class="font-display text-lg font-bold text-sf-blue">{{ member.name }}</h3>

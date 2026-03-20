@@ -12,6 +12,51 @@ import { ImageLightbox } from '../../shared/components/image-lightbox/image-ligh
   templateUrl: './home.html',
 })
 export class Home {
+  activeTestimonial = 0;
+  testimonialInterval: ReturnType<typeof setInterval> | null = null;
+
+  testimonials = [
+    {
+      quote: 'WAPS transformed how we track and reduce downtime. We saw a measurable improvement in OEE within the first quarter.',
+      name: 'Sarah Mitchell',
+      role: 'Plant Director',
+      company: 'Boston Scientific',
+      image: 'assets/customers/testimonials/sarah-mitchell.jpg',
+    },
+    {
+      quote: 'The real-time visibility into our production lines has been a game-changer. Our teams now fix problems before they escalate.',
+      name: 'James O\'Connor',
+      role: 'Operations Manager',
+      company: 'Stryker',
+      image: 'assets/customers/testimonials/james-oconnor.jpg',
+    },
+    {
+      quote: 'SmartFactory understood our manufacturing challenges from day one. Implementation was fast and the support has been exceptional.',
+      name: 'Maria Chen',
+      role: 'VP Manufacturing',
+      company: 'Teleflex',
+      image: 'assets/customers/testimonials/maria-chen.jpg',
+    },
+  ];
+
+  ngOnInit() {
+    this.testimonialInterval = setInterval(() => {
+      this.activeTestimonial = (this.activeTestimonial + 1) % this.testimonials.length;
+    }, 4000);
+  }
+
+  ngOnDestroy() {
+    if (this.testimonialInterval) clearInterval(this.testimonialInterval);
+  }
+
+  setTestimonial(index: number) {
+    this.activeTestimonial = index;
+    if (this.testimonialInterval) clearInterval(this.testimonialInterval);
+    this.testimonialInterval = setInterval(() => {
+      this.activeTestimonial = (this.activeTestimonial + 1) % this.testimonials.length;
+    }, 4000);
+  }
+
   valueProps = [
     {
       icon: 'M13 10V3L4 14h7v7l9-11h-7z',

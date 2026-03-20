@@ -1,24 +1,22 @@
 <!-- Hero -->
-<section class="bg-sf-blue relative overflow-hidden">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-28 text-center relative">
-    <img src="assets/waps/WAPS-logo-white-no-text.svg" alt="WAPS" class="h-16 mx-auto mb-8 opacity-30 animate-fade-in" />
-    <span class="tech-label text-white/60 mb-6 block">Platform Overview</span>
-    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-800 text-white mb-6 animate-reveal-up">WAPS</h1>
+<section class="hero-gradient relative overflow-hidden -mt-16 pt-16 pb-0 min-h-screen flex flex-col justify-center">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 text-center relative">
+    <span class="tech-label text-white/60 mb-4 block">Platform Overview</span>
+    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-800 text-white mb-4 animate-reveal-up">WAPS</h1>
     <p class="text-lg text-white/60 max-w-2xl mx-auto animate-reveal-up delay-200">
       The Work Area Performance System — a complete IIoT platform for Industry 4.0 manufacturing environments.
     </p>
 
-    <div class="mt-14 animate-reveal-up delay-300 max-w-5xl mx-auto">
-      <div class="relative shadow-2xl rounded-lg overflow-hidden">
+    <div class="mt-10 animate-reveal-up delay-300 max-w-5xl mx-auto translate-y-12">
+      <div class="relative shadow-2xl shadow-sf-blue/20 rounded-lg overflow-hidden">
         <app-image-lightbox src="assets/waps/screenshots/dtvr.png" alt="WAPS Downtime Viewer — real-time production dashboard" imgClass="w-full" />
       </div>
-      <p class="tech-label text-white/40 mt-4">Downtime Viewer — Real-time Production Dashboard</p>
     </div>
   </div>
 </section>
 
 <!-- Capabilities -->
-<section class="bg-white py-24">
+<section class="pt-20 pb-24">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <app-section-header title="WAPS Capabilities" subtitle="From design to operational excellence, WAPS covers the full manufacturing data lifecycle" />
 
@@ -40,7 +38,7 @@
           </div>
 
           <div [class]="i % 2 !== 0 ? 'lg:order-1' : ''"
-               class="shadow-lg rounded-lg overflow-hidden">
+               class="shadow-2xl shadow-sf-blue/20 rounded-lg overflow-hidden">
             <app-image-lightbox [src]="cap.image" [alt]="cap.title + ' — WAPS module screenshot'" imgClass="w-full" />
           </div>
         </div>
@@ -102,6 +100,25 @@
           <p class="tech-label text-white/20">Industrial Interoperability Standard</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Integrations -->
+<section class="py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <app-section-header label="Ecosystem" title="Integrations" subtitle="WAPS connects with your existing enterprise systems" />
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      @for (item of integrations; track item.name; let i = $index) {
+        <div appScrollReveal class="bg-white border border-sf-grey/20 rounded-lg p-8 text-center hover:border-sf-accent/40 transition-all duration-300 group"
+             [style.animation-delay.ms]="i * 100">
+          <div class="h-24 flex items-center justify-center mb-6">
+            <img [src]="item.logo" [alt]="item.name" class="max-h-full max-w-[180px] object-contain" />
+          </div>
+          <p class="text-sm text-sf-text-mid leading-relaxed">{{ item.description }}</p>
+        </div>
+      }
     </div>
   </div>
 </section>

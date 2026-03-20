@@ -6,7 +6,7 @@ import { UpperCasePipe } from '@angular/common';
   selector: 'app-cta-banner',
   imports: [RouterLink, UpperCasePipe],
   template: `
-<section class="bg-sf-blue relative overflow-hidden">
+<section class="hero-gradient relative overflow-hidden">
   <div class="max-w-4xl mx-auto px-4 py-20 text-center relative">
     <h2 class="font-display text-3xl sm:text-4xl font-800 text-white mb-4">{{ heading() }}</h2>
     @if (subheading()) {

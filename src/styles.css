@@ -7,7 +7,7 @@
   --color-sf-accent: #009fe3;
   --color-sf-accent-light: #5cc5f2;
   --color-sf-grey: #9d9d9c;
-  --color-sf-grey-light: #f5f5f5;
+  --color-sf-grey-light: #f0f2f4;
   --color-sf-text: #1a1a1a;
   --color-sf-text-mid: #4a5568;
 
@@ -24,6 +24,15 @@
   --color-sf-text-light: #718096;
   --color-sf-border: #d4cfc6;
 
+  --text-sm: 16px;
+  --text-sm--line-height: 1.5;
+  --text-base: 21px;
+  --text-base--line-height: 1.6;
+  --text-lg: 24px;
+  --text-lg--line-height: 1.5;
+  --text-xl: 27px;
+  --text-xl--line-height: 1.4;
+
   --font-display: "Avenir", sans-serif;
   --font-body: "Darker Grotesque", sans-serif;
   --font-mono: "Geist Mono", monospace;
@@ -36,12 +45,38 @@ html {
 body {
   font-family: var(--font-body);
   color: var(--color-sf-text);
-  background: #ffffff;
+  background: #f8f9fa;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 500;
-  font-size: 17px;
+  font-size: 21px;
   line-height: 1.6;
+}
+
+/* ── Graphic container ── */
+.graphic-frame {
+  background: white;
+  border: 1px solid var(--color-sf-grey-light);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow:
+    0 4px 6px -1px rgba(13, 73, 106, 0.05),
+    0 10px 30px -5px rgba(13, 73, 106, 0.08);
+  transition: box-shadow 0.3s ease;
+}
+.graphic-frame:hover {
+  box-shadow:
+    0 4px 6px -1px rgba(13, 73, 106, 0.08),
+    0 20px 40px -5px rgba(13, 73, 106, 0.12);
+}
+
+/* ── Hero gradient background ── */
+.hero-gradient {
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(0, 159, 227, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(26, 107, 148, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 0%, rgba(0, 159, 227, 0.08) 0%, transparent 70%),
+    linear-gradient(135deg, #0d496a 0%, #1a6b94 50%, #0d496a 100%);
 }
 
 /* deprecated */
@@ -180,7 +215,7 @@ body {
 /* ── Technical label style ── */
 .tech-label {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -209,7 +244,7 @@ body {
   color: white;
 }
 .btn-primary:hover {
-  background: var(--color-sf-blue-light);
+  background: var(--color-sf-accent);
 }
 
 /* Outline */
