@@ -26,7 +26,7 @@ import { SectionHeader } from '../../shared/components/section-header/section-he
                   </div>
                   <div class="min-w-0">
                     <h3 class="font-display font-bold text-sf-blue group-hover:text-sf-accent transition-colors mb-1">{{ post.title }}</h3>
-                    <p class="text-sm text-sf-text-mid line-clamp-2">{{ post.summary }}</p>
+                    <p class="text-base text-sf-text-mid line-clamp-2">{{ post.summary }}</p>
                     <p class="font-mono text-sm text-sf-text-light mt-3 tracking-wide">{{ post.createdAt | date:'mediumDate' }}</p>
                   </div>
                 </div>

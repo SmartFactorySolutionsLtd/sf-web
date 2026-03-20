@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  /* New design system */
   --color-sf-blue: #0d496a;
   --color-sf-blue-light: #1a6b94;
   --color-sf-accent: #009fe3;
@@ -10,19 +9,7 @@
   --color-sf-grey-light: #f0f2f4;
   --color-sf-text: #1a1a1a;
   --color-sf-text-mid: #4a5568;
-
-  /* deprecated — keep until all pages migrated */
-  --color-sf-midnight: #091f2c;
-  --color-sf-deep: #0b2e40;
-  --color-sf-steel: #0d496a;
-  --color-sf-ocean: #1a6b94;
-  --color-sf-sky: #2a8ab8;
-  --color-sf-ember: #ff6b35;
-  --color-sf-warm: #f0ece4;
-  --color-sf-warm-dark: #e4ded4;
-  --color-sf-paper: #faf8f5;
   --color-sf-text-light: #718096;
-  --color-sf-border: #d4cfc6;
 
   --text-sm: 16px;
   --text-sm--line-height: 1.5;
@@ -76,7 +63,7 @@ body {
     radial-gradient(ellipse at 20% 80%, rgba(0, 159, 227, 0.15) 0%, transparent 50%),
     radial-gradient(ellipse at 80% 20%, rgba(26, 107, 148, 0.2) 0%, transparent 50%),
     radial-gradient(ellipse at 50% 0%, rgba(0, 159, 227, 0.08) 0%, transparent 70%),
-    linear-gradient(135deg, #0d496a 0%, #1a6b94 50%, #0d496a 100%);
+    linear-gradient(135deg, #1a6b94 0%, #0d496a 50%, #1a6b94 100%);
 }
 
 /* deprecated */
@@ -192,6 +179,25 @@ body {
   transform-origin: left;
 }
 
+/* ── Radial reveal (expands circle clip from center) ── */
+@keyframes sf-radial-reveal {
+  from {
+    clip-path: circle(0% at 50% 50%);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  to {
+    clip-path: circle(75% at 50% 50%);
+    opacity: 1;
+  }
+}
+
+.animate-radial-reveal {
+  animation: sf-radial-reveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 /* ── Stagger delays ── */
 .delay-100 { animation-delay: 100ms; }
 .delay-200 { animation-delay: 200ms; }
@@ -201,21 +207,11 @@ body {
 .delay-600 { animation-delay: 600ms; }
 .delay-700 { animation-delay: 700ms; }
 
-/* deprecated */
-/* ── Signal dot (status indicator) ── */
-.signal-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--color-sf-ocean);
-  box-shadow: 0 0 8px var(--color-sf-ocean);
-  animation: sf-pulse-signal 2s ease-in-out infinite;
-}
 
 /* ── Technical label style ── */
 .tech-label {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;

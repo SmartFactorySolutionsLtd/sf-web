@@ -36,7 +36,7 @@ interface NavLink {
                 </svg>
               </a>
               <div class="absolute top-full left-0 pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                <div class="bg-white border border-sf-grey/20 shadow-lg rounded-lg min-w-44 py-1">
+                <div class="dropdown-menu bg-white border border-sf-grey/20 shadow-lg rounded-lg min-w-44 py-1">
                   @for (child of link.children; track child.path) {
                     <a [routerLink]="child.path"
                        routerLinkActive="nav-active"
@@ -125,6 +125,7 @@ interface NavLink {
     .nav-scrolled .nav-link { color: var(--color-sf-text-mid); }
     .nav-scrolled .nav-link:hover { color: var(--color-sf-blue); }
     .nav-top .nav-active { color: white !important; }
+    .dropdown-menu .nav-active { color: var(--color-sf-blue) !important; font-weight: 700; }
     .nav-scrolled .nav-active { color: var(--color-sf-blue) !important; font-weight: 700; }
   `]
 })
@@ -136,7 +137,7 @@ export class Navbar {
     { path: '/', label: 'Home', exact: true },
     { path: '/solutions', label: 'Solutions', exact: false },
     {
-      path: '/about', label: 'About', exact: false,
+      path: '/about', label: 'Company', exact: false,
       children: [
         { path: '/about', label: 'Overview' },
         { path: '/about/team', label: 'Team' },

@@ -1,10 +1,10 @@
 <!-- Hero -->
 <section class="hero-gradient relative overflow-hidden -mt-16 pt-16 pb-0 min-h-screen flex flex-col justify-center">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 text-center relative">
-    <span class="tech-label text-white/60 mb-4 block">Platform Overview</span>
-    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-800 text-white mb-4 animate-reveal-up">WAPS</h1>
-    <p class="text-lg text-white/60 max-w-2xl mx-auto animate-reveal-up delay-200">
-      The Work Area Performance System — a complete IIoT platform for Industry 4.0 manufacturing environments.
+    <div class="h-0.5 w-20 bg-sf-accent-light mb-4 mx-auto"></div>
+    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-800 text-white mb-4 animate-reveal-up">One Platform, Whole Factory</h1>
+    <p class="text-lg text-white/75 max-w-2xl mx-auto animate-reveal-up delay-200">
+      WAPS — a complete IIoT platform for Industry 4.0 manufacturing environments.
     </p>
 
     <div class="mt-10 animate-reveal-up delay-300 max-w-5xl mx-auto translate-y-12">
@@ -18,23 +18,25 @@
 <!-- Capabilities -->
 <section class="pt-20 pb-24">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <app-section-header title="WAPS Capabilities" subtitle="From design to operational excellence, WAPS covers the full manufacturing data lifecycle" />
+    <div class="text-center mb-20" appScrollReveal>
+      <app-waps-logo-animated class="h-20 sm:h-28 mx-auto mb-6" />
+      <h2 class="font-display text-2xl sm:text-3xl font-800 text-sf-blue tracking-wide">
+        Work Area Performance System
+      </h2>
+      <p class="mt-4 text-lg text-sf-text-mid max-w-2xl mx-auto">From design to operational excellence, WAPS covers the full manufacturing data lifecycle</p>
+    </div>
 
     <div class="space-y-20">
       @for (cap of capabilities; track cap.title; let i = $index) {
-        <div appScrollReveal class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div appScrollFocus class="grid grid-cols-1 gap-10 items-center"
+             [class]="i % 2 === 0 ? 'lg:grid-cols-[40%_60%]' : 'lg:grid-cols-[60%_40%]'">
           <div [class]="i % 2 !== 0 ? 'lg:order-2' : ''">
             <div class="flex items-center gap-3 mb-4">
               <span class="tech-label text-sf-blue">0{{ i + 1 }}</span>
               <div class="h-px w-6 bg-sf-blue/30"></div>
-              <div class="w-10 h-10 border border-sf-blue/20 flex items-center justify-center">
-                <svg class="w-5 h-5 text-sf-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" [attr.d]="cap.icon"/>
-                </svg>
-              </div>
             </div>
             <h3 class="font-display text-2xl font-800 text-sf-blue mb-4">{{ cap.title }}</h3>
-            <p class="text-sf-text-mid leading-relaxed">{{ cap.description }}</p>
+            <p class="text-lg text-sf-text-mid leading-relaxed">{{ cap.description }}</p>
           </div>
 
           <div [class]="i % 2 !== 0 ? 'lg:order-1' : ''"
@@ -57,7 +59,7 @@
         <div appScrollReveal class="border border-white/10 p-5 flex items-start gap-3 hover:border-white/30 transition-colors"
              [style.animation-delay.ms]="i * 80">
           <div class="w-1.5 h-1.5 mt-2 bg-white shrink-0"></div>
-          <span class="text-sm font-display text-white/70">{{ feature }}</span>
+          <span class="text-base font-display text-white/70">{{ feature }}</span>
         </div>
       }
     </div>
@@ -76,16 +78,16 @@
 
         <h2 class="font-display text-3xl font-800 text-sf-blue mb-6">Seamless OPC UA Integration</h2>
 
-        <p class="text-sf-text-mid leading-relaxed mb-4">
+        <p class="text-lg text-sf-text-mid leading-relaxed mb-4">
           WAPS connects to your existing equipment using OPC UA — the industry standard for interoperability in manufacturing. No proprietary lock-in, no complex middleware.
         </p>
-        <p class="text-sf-text-mid leading-relaxed mb-6">
+        <p class="text-lg text-sf-text-mid leading-relaxed mb-6">
           Whether you're running Siemens, Allen-Bradley, Mitsubishi, or any other OPC UA-compatible equipment, WAPS integrates seamlessly and starts delivering value from day one.
         </p>
 
         <ul class="space-y-3 mt-6">
           @for (item of opcFeatures; track item) {
-            <li class="flex items-center gap-3 text-sm text-sf-text-mid">
+            <li class="flex items-center gap-3 text-base text-sf-text-mid">
               <div class="w-1.5 h-1.5 bg-sf-blue shrink-0"></div>
               {{ item }}
             </li>
@@ -116,7 +118,7 @@
           <div class="h-24 flex items-center justify-center mb-6">
             <img [src]="item.logo" [alt]="item.name" class="max-h-full max-w-[180px] object-contain" />
           </div>
-          <p class="text-sm text-sf-text-mid leading-relaxed">{{ item.description }}</p>
+          <p class="text-base text-sf-text-mid leading-relaxed">{{ item.description }}</p>
         </div>
       }
     </div>

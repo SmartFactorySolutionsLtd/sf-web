@@ -3,7 +3,7 @@
          style="background: linear-gradient(to right, rgba(13,73,106,0.85) 0%, rgba(13,73,106,0.4) 100%), url('assets/graphics/hero-factory.jpg') center/cover no-repeat;">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative w-full">
     <div class="max-w-3xl">
-      <span class="tech-label text-sf-accent mb-6 block">Industry 4.0 Ready</span>
+      <div appScrollGrow class="h-0.5 w-20 bg-sf-accent-light mb-6"></div>
 
       <h1 class="font-display text-4xl lg:text-6xl font-800 text-white leading-[1.1] mb-6">
         Transforming Manufacturing Through Intelligent Data
@@ -75,14 +75,14 @@
               </svg>
             </div>
           </div>
-          <p class="absolute bottom-4 left-4 tech-label text-white/30">Customer Stories</p>
+          <p class="absolute bottom-4 left-4 tech-label text-white/75">Customer Stories</p>
         </div>
       </div>
 
       <!-- Quotes carousel -->
       <div appScrollReveal class="relative">
         <!-- Large quote mark -->
-        <svg class="absolute -top-4 -left-2 w-16 h-16 text-sf-accent/20" fill="currentColor" viewBox="0 0 24 24">
+        <svg class="absolute -top-4 -left-2 w-16 h-16 text-sf-accent-light/20" fill="currentColor" viewBox="0 0 24 24">
           <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11H10v10H0z"/>
         </svg>
 
@@ -102,7 +102,7 @@
                 </div>
                 <div>
                   <div class="font-display font-bold text-white">{{ testimonial.name }}</div>
-                  <div class="text-sm text-white/40">{{ testimonial.role }}, {{ testimonial.company }}</div>
+                  <div class="text-sm text-white/75">{{ testimonial.role }}, {{ testimonial.company }}</div>
                 </div>
               </div>
             </div>

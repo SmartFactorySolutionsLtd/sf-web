@@ -2,7 +2,6 @@ import { Component, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 import { environment } from '../../../environments/environment';
-
 @Component({
   selector: 'app-contact',
   imports: [ReactiveFormsModule],

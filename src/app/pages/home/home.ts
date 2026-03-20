@@ -1,17 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SectionHeader } from '../../shared/components/section-header/section-header';
 import { CtaBanner } from '../../shared/components/cta-banner/cta-banner';
 import { LatestUpdates } from '../../widgets/latest-updates/latest-updates';
 import { ScrollReveal } from '../../shared/directives/scroll-reveal';
+import { ScrollGrow } from '../../shared/directives/scroll-grow';
 import { ImageLightbox } from '../../shared/components/image-lightbox/image-lightbox';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, SectionHeader, CtaBanner, LatestUpdates, ScrollReveal, ImageLightbox],
+  imports: [RouterLink, SectionHeader, CtaBanner, LatestUpdates, ScrollReveal, ScrollGrow, ImageLightbox],
   templateUrl: './home.html',
+  host: {
+    '[class.opacity-0]': '!heroLoaded()',
+    '[class.opacity-100]': 'heroLoaded()',
+    '[class.transition-opacity]': 'true',
+    '[class.duration-300]': 'true',
+  },
 })
 export class Home {
+  heroLoaded = signal(false);
   activeTestimonial = 0;
   testimonialInterval: ReturnType<typeof setInterval> | null = null;
 
@@ -40,6 +48,11 @@ export class Home {
   ];
 
   ngOnInit() {
+    const img = new Image();
+    img.src = 'assets/graphics/hero-factory.jpg';
+    img.onload = () => this.heroLoaded.set(true);
+    img.onerror = () => this.heroLoaded.set(true); // show page even if image fails
+
     this.testimonialInterval = setInterval(() => {
       this.activeTestimonial = (this.activeTestimonial + 1) % this.testimonials.length;
     }, 4000);

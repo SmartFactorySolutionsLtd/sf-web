@@ -3,7 +3,6 @@ import { RouterLink } from '@angular/router';
 import { SectionHeader } from '../../../shared/components/section-header/section-header';
 import { CtaBanner } from '../../../shared/components/cta-banner/cta-banner';
 import { ScrollReveal } from '../../../shared/directives/scroll-reveal';
-
 @Component({
   selector: 'app-team',
   imports: [RouterLink, SectionHeader, CtaBanner, ScrollReveal],

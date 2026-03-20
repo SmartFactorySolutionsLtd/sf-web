@@ -1,12 +1,11 @@
 import { Component, input } from '@angular/core';
-
 @Component({
   selector: 'app-section-header',
   template: `
     <div class="mb-16">
       <div class="flex items-center gap-3 mb-4">
         <div class="h-px w-8 animate-line-grow" [class]="theme() === 'dark' ? 'bg-sf-accent' : 'bg-sf-accent'"></div>
-        <span class="tech-label" [class]="theme() === 'dark' ? 'text-sf-accent' : 'text-sf-accent'">
+        <span class="tech-label" [class]="theme() === 'dark' ? 'text-sf-accent-light' : 'text-sf-accent'">
           {{ label() || title() }}
         </span>
       </div>
@@ -16,7 +15,7 @@ import { Component, input } from '@angular/core';
       </h2>
       @if (subtitle()) {
         <p class="mt-4 text-lg sm:text-xl max-w-2xl"
-           [class]="theme() === 'dark' ? 'text-white/50' : 'text-sf-text-mid'">
+           [class]="theme() === 'dark' ? 'text-white/75' : 'text-sf-text-mid'">
           {{ subtitle() }}
         </p>
       }

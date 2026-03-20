@@ -12,13 +12,13 @@ import { ScrollReveal } from '../../../shared/directives/scroll-reveal';
       <!-- Hero strip for navbar background -->
       <div class="hero-gradient -mt-16 pt-16">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-          <a routerLink="/articles" class="text-white/60 hover:text-white text-sm inline-flex items-center gap-2 transition-colors font-mono tracking-wide">
+          <a routerLink="/articles" class="text-white/75 hover:text-white text-sm inline-flex items-center gap-2 transition-colors font-mono tracking-wide">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
             </svg>
             Articles
           </a>
-          <span class="tech-label text-white/40">{{ a.createdAt | date:'mediumDate' }}</span>
+          <span class="tech-label text-white/75">{{ a.createdAt | date:'mediumDate' }}</span>
         </div>
       </div>
 
@@ -43,7 +43,7 @@ import { ScrollReveal } from '../../../shared/directives/scroll-reveal';
 
         <div class="flex items-center gap-4 mb-12">
           <div class="w-8 h-0.5 bg-sf-accent"></div>
-          <span class="font-display text-sm text-sf-text-mid tracking-wide">{{ a.author }}</span>
+          <span class="font-display text-base text-sf-text-mid tracking-wide">{{ a.author }}</span>
         </div>
 
         <article appScrollReveal>
@@ -76,7 +76,7 @@ import { ScrollReveal } from '../../../shared/directives/scroll-reveal';
   styles: [`
     :host ::ng-deep .article-prose {
       font-family: var(--font-body);
-      font-size: 1.125rem;
+      font-size: 1.35rem;
       line-height: 1.9;
       color: var(--color-sf-text-mid);
     }

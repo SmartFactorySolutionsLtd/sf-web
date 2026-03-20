@@ -2,7 +2,6 @@ import { Component, inject, signal, computed } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { ArticleService } from '../../../core/services/article.service';
-
 @Component({
   selector: 'app-article-list',
   imports: [RouterLink, DatePipe],
@@ -10,9 +9,9 @@ import { ArticleService } from '../../../core/services/article.service';
     <!-- Hero -->
     <section class="hero-gradient relative overflow-hidden -mt-16 pt-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 text-center relative">
-        <span class="tech-label text-sf-accent mb-6 block">Insights</span>
+        <div class="h-0.5 w-20 bg-sf-accent-light mb-6 mx-auto"></div>
         <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-800 text-white mb-6 animate-reveal-up">Articles</h1>
-        <p class="text-lg text-white/60 max-w-2xl mx-auto animate-reveal-up delay-200">
+        <p class="text-lg text-white/75 max-w-2xl mx-auto animate-reveal-up delay-200">
           Insights, news, and thought leadership from the SmartFactory team.
         </p>
       </div>
@@ -90,7 +89,7 @@ import { ArticleService } from '../../../core/services/article.service';
                     }
                   </div>
                   <h2 class="font-display font-bold text-lg text-sf-blue group-hover:text-sf-accent transition-colors duration-200 mb-2">{{ article.title }}</h2>
-                  <p class="text-sm text-sf-text-mid leading-relaxed line-clamp-3">{{ article.summary }}</p>
+                  <p class="text-base text-sf-text-mid leading-relaxed line-clamp-3">{{ article.summary }}</p>
                   <p class="font-mono text-sm text-sf-text-light mt-4 tracking-wide">{{ article.createdAt | date:'mediumDate' }}</p>
                 </div>
               </a>

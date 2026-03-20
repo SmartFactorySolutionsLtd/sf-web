@@ -1,7 +1,7 @@
 <!-- Hero -->
 <section class="hero-gradient relative overflow-hidden -mt-16 pt-16">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 text-center relative">
-    <span class="tech-label text-sf-accent mb-6 block">Get in Touch</span>
+    <div class="h-0.5 w-20 bg-sf-accent-light mb-6 mx-auto"></div>
     <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-800 text-white mb-6">Contact Us</h1>
   </div>
 </section>
@@ -16,35 +16,35 @@
           <span class="tech-label text-sf-blue">Message</span>
         </div>
         <h2 class="font-display text-2xl font-800 text-sf-blue mb-2">Send Us a Message</h2>
-        <p class="text-sm text-sf-text-light mb-8">We'll get back to you shortly.</p>
+        <p class="text-base text-sf-text-light mb-8">We'll get back to you shortly.</p>
 
         @if (submitted()) {
           <div class="bg-sf-blue/5 border border-sf-blue/20 p-6">
             <h3 class="font-display font-bold text-sf-blue mb-2">Message sent successfully.</h3>
-            <p class="text-sm text-sf-text-mid mb-3">We'll get back to you as soon as possible.</p>
-            <button (click)="submitted.set(false)" class="text-sm text-sf-blue hover:text-sf-blue-light font-display font-bold transition-colors tracking-wide">
+            <p class="text-base text-sf-text-mid mb-3">We'll get back to you as soon as possible.</p>
+            <button (click)="submitted.set(false)" class="text-base text-sf-blue hover:text-sf-blue-light font-display font-bold transition-colors tracking-wide">
               SEND ANOTHER MESSAGE
             </button>
           </div>
         } @else {
           <form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-5">
             <div>
-              <label for="name" class="block text-sm font-display font-bold text-sf-blue mb-1.5">Name *</label>
+              <label for="name" class="block text-base font-display font-bold text-sf-blue mb-1.5">Name *</label>
               <input id="name" formControlName="name" type="text"
                      class="w-full px-4 py-3 bg-white border border-sf-grey/20 focus:border-sf-blue outline-none transition-colors font-body text-sf-text placeholder:text-sf-text-light/50"
                      placeholder="Your name">
               @if (form.controls.name.touched && form.controls.name.errors) {
-                <p class="text-red-500 text-sm mt-1.5 font-mono">Required field</p>
+                <p class="text-red-500 text-base mt-1.5 font-mono">Required field</p>
               }
             </div>
 
             <div>
-              <label for="email" class="block text-sm font-display font-bold text-sf-blue mb-1.5">Email *</label>
+              <label for="email" class="block text-base font-display font-bold text-sf-blue mb-1.5">Email *</label>
               <input id="email" formControlName="email" type="email"
                      class="w-full px-4 py-3 bg-white border border-sf-grey/20 focus:border-sf-blue outline-none transition-colors font-body text-sf-text placeholder:text-sf-text-light/50"
                      placeholder="you@company.com">
               @if (form.controls.email.touched && form.controls.email.errors) {
-                <p class="text-red-500 text-sm mt-1.5 font-mono">
+                <p class="text-red-500 text-base mt-1.5 font-mono">
                   {{ form.controls.email.errors['required'] ? 'Required field' : 'Invalid email format' }}
                 </p>
               }
@@ -52,13 +52,13 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
-                <label for="company" class="block text-sm font-display font-bold text-sf-blue mb-1.5">Company</label>
+                <label for="company" class="block text-base font-display font-bold text-sf-blue mb-1.5">Company</label>
                 <input id="company" formControlName="company" type="text"
                        class="w-full px-4 py-3 bg-white border border-sf-grey/20 focus:border-sf-blue outline-none transition-colors font-body text-sf-text placeholder:text-sf-text-light/50"
                        placeholder="Your company">
               </div>
               <div>
-                <label for="phone" class="block text-sm font-display font-bold text-sf-blue mb-1.5">Phone</label>
+                <label for="phone" class="block text-base font-display font-bold text-sf-blue mb-1.5">Phone</label>
                 <input id="phone" formControlName="phone" type="tel"
                        class="w-full px-4 py-3 bg-white border border-sf-grey/20 focus:border-sf-blue outline-none transition-colors font-body text-sf-text placeholder:text-sf-text-light/50"
                        placeholder="+353 ...">
@@ -66,19 +66,19 @@
             </div>
 
             <div>
-              <label for="message" class="block text-sm font-display font-bold text-sf-blue mb-1.5">Message *</label>
+              <label for="message" class="block text-base font-display font-bold text-sf-blue mb-1.5">Message *</label>
               <textarea id="message" formControlName="message" rows="5"
                         class="w-full px-4 py-3 bg-white border border-sf-grey/20 focus:border-sf-blue outline-none transition-colors font-body text-sf-text resize-none placeholder:text-sf-text-light/50"
                         placeholder="Tell us about your project..."></textarea>
               @if (form.controls.message.touched && form.controls.message.errors) {
-                <p class="text-red-500 text-sm mt-1.5 font-mono">Required field</p>
+                <p class="text-red-500 text-base mt-1.5 font-mono">Required field</p>
               }
             </div>
 
             @if (error()) {
-              <div class="bg-red-500/5 border border-red-500/20 p-4 text-sm text-red-500">
+              <div class="bg-red-500/5 border border-red-500/20 p-4 text-base text-red-500">
                 Something went wrong. Please try again or email us directly at
-                <a href="mailto:info@smartfactory.ie" class="font-bold hover:underline font-mono text-sm">info&#64;smartfactory.ie</a>
+                <a href="mailto:info@smartfactory.ie" class="font-bold hover:underline font-mono text-base">info&#64;smartfactory.ie</a>
               </div>
             }
 
@@ -110,7 +110,7 @@
             </div>
             <div>
               <h3 class="font-display font-bold text-sf-blue mb-1">Address</h3>
-              <p class="text-sm text-sf-text-mid leading-relaxed">
+              <p class="text-base text-sf-text-mid leading-relaxed">
                 Nexus Innovation Centre, Tierney Building<br>
                 University of Limerick<br>
                 Limerick, Ireland V94 NYD3
@@ -126,7 +126,7 @@
             </div>
             <div>
               <h3 class="font-display font-bold text-sf-blue mb-1">Phone</h3>
-              <p class="text-sm text-sf-text-mid font-mono">
+              <p class="text-base text-sf-text-mid font-mono">
                 <a href="tel:+35361518443" class="hover:text-sf-blue transition-colors block">IE: +353 61 518 443</a>
                 <a href="tel:+441635800355" class="hover:text-sf-blue transition-colors block mt-0.5">UK: +44 1 635 800 355</a>
               </p>
@@ -141,7 +141,7 @@
             </div>
             <div>
               <h3 class="font-display font-bold text-sf-blue mb-1">Email</h3>
-              <p class="text-sm">
+              <p class="text-base">
                 <a href="mailto:info@smartfactory.ie" class="text-sf-blue hover:text-sf-blue-light transition-colors font-mono">info&#64;smartfactory.ie</a>
               </p>
             </div>

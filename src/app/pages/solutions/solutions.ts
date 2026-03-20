@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { SectionHeader } from '../../shared/components/section-header/section-header';
 import { CtaBanner } from '../../shared/components/cta-banner/cta-banner';
 import { ScrollReveal } from '../../shared/directives/scroll-reveal';
+import { ScrollFocus } from '../../shared/directives/scroll-focus';
 import { ImageLightbox } from '../../shared/components/image-lightbox/image-lightbox';
+import { WapsLogoAnimated } from '../../shared/components/waps-logo-animated/waps-logo-animated';
 
 @Component({
   selector: 'app-solutions',
-  imports: [SectionHeader, CtaBanner, ScrollReveal, ImageLightbox],
+  imports: [SectionHeader, CtaBanner, ScrollReveal, ScrollFocus, WapsLogoAnimated, ImageLightbox],
   templateUrl: './solutions.html',
 })
 export class Solutions {
