@@ -3,9 +3,7 @@ import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-image-lightbox',
-  template: `
-    <img [src]="src()" [alt]="alt()" [class]="imgClass()" class="cursor-zoom-in" (click)="open()" />
-  `,
+  templateUrl: './image-lightbox.html',
   host: { class: 'contents' }
 })
 export class ImageLightbox implements OnDestroy {

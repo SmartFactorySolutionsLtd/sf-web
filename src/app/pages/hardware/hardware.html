@@ -1,0 +1,233 @@
+<!-- Hero -->
+<section class="hero-gradient relative overflow-hidden -mt-16 pt-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 text-center relative">
+    <div class="h-0.5 w-20 bg-sf-accent-light mb-6 mx-auto"></div>
+    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-800 text-white mb-4 animate-reveal-up">IIoT Hardware</h1>
+    <p class="text-lg sm:text-xl text-white/75 max-w-3xl mx-auto animate-reveal-up delay-200">
+      Industrial-grade sensors, PLCs, and connectivity solutions for smart manufacturing — making real-time data acquisition smart, fast, ultra-reliable and affordable.
+    </p>
+    <div class="mt-8 animate-reveal-up delay-300">
+      <button (click)="openModal()" class="btn btn-white">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+        </svg>
+        Download Full Hardware Guide
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Solution Categories Overview -->
+<section class="py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <app-section-header label="Solutions" title="Five Pillars of Smart Connectivity" subtitle="Our standard connectivity solutions integrate rugged industrial hardware from the leaders in industrial automation" />
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+      @for (cat of categories; track cat.title; let i = $index) {
+        <div appScrollReveal class="group bg-white border border-sf-grey/15 rounded-xl p-6 hover:border-sf-blue/30 hover:shadow-lg transition-all duration-300"
+             [style.animation-delay.ms]="i * 80">
+          <div class="w-11 h-11 rounded-lg bg-sf-blue/8 flex items-center justify-center mb-4 group-hover:bg-sf-blue/15 transition-colors">
+            <svg class="w-5 h-5 text-sf-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" [attr.d]="cat.icon"/>
+            </svg>
+          </div>
+          <span class="tech-label text-sf-blue/50 text-xs">{{ cat.label }}</span>
+          <h3 class="font-display font-bold text-sf-blue text-sm mt-1 mb-2">{{ cat.title }}</h3>
+          <p class="text-sm text-sf-text-mid leading-relaxed">{{ cat.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- IIoT Toolkits -->
+<section class="py-24 bg-sf-grey-light">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <app-section-header label="Core Hardware" title="IIoT Toolkits" subtitle="Pre-configured hardware kits designed for rapid deployment and long-term reliability" />
+
+    <div class="space-y-16">
+      @for (kit of toolkits; track kit.number; let i = $index) {
+        <div appScrollFocus class="bg-white rounded-xl border border-sf-grey/15 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+            <div class="p-8 sm:p-10 flex flex-col justify-center" [class]="i % 2 !== 0 ? 'lg:order-2' : ''">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-sf-blue text-white font-display font-bold text-sm">{{ kit.number }}</span>
+                <div class="h-px flex-1 bg-sf-grey/20"></div>
+              </div>
+              <h3 class="font-display text-2xl font-800 text-sf-blue mb-3">{{ kit.title }}</h3>
+              <p class="text-base text-sf-text-mid leading-relaxed mb-6">{{ kit.description }}</p>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                @for (feat of kit.features; track feat) {
+                  <li class="flex items-start gap-2 text-sm text-sf-text-mid">
+                    <div class="w-1.5 h-1.5 rounded-full bg-sf-blue mt-1.5 shrink-0"></div>
+                    {{ feat }}
+                  </li>
+                }
+              </ul>
+            </div>
+            <div class="bg-sf-grey-light flex items-center justify-center p-8 sm:p-12" [class]="i % 2 !== 0 ? 'lg:order-1' : ''">
+              <img [src]="kit.image" [alt]="'IIoT Toolkit ' + kit.number + ' — ' + kit.title" class="max-h-72 w-auto object-contain drop-shadow-lg" />
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Specialised Solutions -->
+<section class="py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <app-section-header label="Specialised" title="Sensors & Systems" subtitle="Purpose-built hardware for specific monitoring and automation needs" />
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      @for (item of specialised; track item.title; let i = $index) {
+        <div appScrollReveal class="group bg-white border border-sf-grey/15 rounded-xl overflow-hidden hover:border-sf-blue/20 hover:shadow-lg transition-all duration-300"
+             [style.animation-delay.ms]="i * 100">
+          <div class="h-48 bg-sf-grey-light flex items-center justify-center p-6 overflow-hidden">
+            <img [src]="item.image" [alt]="item.title" class="max-h-full w-auto object-contain group-hover:scale-105 transition-transform duration-500" />
+          </div>
+          <div class="p-6">
+            <span class="tech-label text-sf-blue/50 text-xs">{{ item.subtitle }}</span>
+            <h3 class="font-display font-bold text-lg text-sf-blue mt-1 mb-2">{{ item.title }}</h3>
+            <p class="text-sm text-sf-text-mid leading-relaxed">{{ item.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Smart Connectivity -->
+<section class="py-24 bg-sf-blue relative overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-sf-accent/30 to-transparent"></div>
+    <div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-sf-accent/30 to-transparent"></div>
+    <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-sf-accent/5 blur-3xl"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <app-section-header label="Infrastructure" title="Smart Connectivity Solutions" subtitle="Connect anything, build securely, scale without limits" theme="dark" />
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      @for (item of connectivity; track item.title; let i = $index) {
+        <div appScrollReveal class="border border-white/10 rounded-xl p-6 hover:border-white/25 transition-colors"
+             [style.animation-delay.ms]="i * 80">
+          <h3 class="font-display font-bold text-white mb-2">{{ item.title }}</h3>
+          <p class="text-sm text-white/60 leading-relaxed">{{ item.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Download CTA -->
+<section class="py-24 bg-sf-grey-light">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center" appScrollReveal>
+      <div class="bg-white border border-sf-grey/15 rounded-xl p-10 sm:p-14 shadow-sm">
+        <div class="w-16 h-16 mx-auto mb-6 rounded-xl bg-sf-blue/8 flex items-center justify-center">
+          <svg class="w-8 h-8 text-sf-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+        </div>
+        <h2 class="font-display text-2xl sm:text-3xl font-800 text-sf-blue mb-3">Get the Complete Hardware Guide</h2>
+        <p class="text-base text-sf-text-mid mb-8 max-w-xl mx-auto">
+          Download our comprehensive PDF with full specifications, wiring diagrams, and deployment guides for every IIoT toolkit and sensor solution.
+        </p>
+        <button (click)="openModal()" class="btn btn-primary">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          DOWNLOAD PDF
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-cta-banner heading="Need Help Choosing Hardware?" subheading="Our team can recommend the right sensors and PLCs for your manufacturing environment." />
+
+<!-- Contact Modal -->
+@if (showModal()) {
+  <div class="fixed inset-0 z-50 flex items-center justify-center p-4" (click)="onBackdropClick($event)">
+    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+    <div class="relative bg-white rounded-xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-8">
+      <button (click)="closeModal()" class="absolute top-4 right-4 text-sf-grey hover:text-sf-blue transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <div class="flex items-center gap-3 mb-2">
+        <div class="h-px w-8 bg-sf-blue"></div>
+        <span class="tech-label text-sf-blue">Download</span>
+      </div>
+      <h2 class="font-display text-2xl font-800 text-sf-blue mb-2">Get the Hardware Guide</h2>
+      <p class="text-base text-sf-text-light mb-6">Fill in your details to access the PDF.</p>
+
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-5">
+        <div>
+          <label for="hw-name" class="block text-base font-display font-bold text-sf-blue mb-1.5">Name *</label>
+          <input id="hw-name" formControlName="name" type="text"
+                 class="w-full px-4 py-3 bg-white border border-sf-grey/20 rounded-lg focus:border-sf-blue outline-none transition-colors font-body text-sf-text placeholder:text-sf-text-light/50"
+                 placeholder="Your name">
+          @if (form.controls.name.touched && form.controls.name.errors) {
+            <p class="text-red-500 text-base mt-1.5 font-mono">Required field</p>
+          }
+        </div>
+
+        <div>
+          <label for="hw-email" class="block text-base font-display font-bold text-sf-blue mb-1.5">Email *</label>
+          <input id="hw-email" formControlName="email" type="email"
+                 class="w-full px-4 py-3 bg-white border border-sf-grey/20 rounded-lg focus:border-sf-blue outline-none transition-colors font-body text-sf-text placeholder:text-sf-text-light/50"
+                 placeholder="you@company.com">
+          @if (form.controls.email.touched && form.controls.email.errors) {
+            <p class="text-red-500 text-base mt-1.5 font-mono">
+              {{ form.controls.email.errors['required'] ? 'Required field' : 'Invalid email format' }}
+            </p>
+          }
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div>
+            <label for="hw-company" class="block text-base font-display font-bold text-sf-blue mb-1.5">Company</label>
+            <input id="hw-company" formControlName="company" type="text"
+                   class="w-full px-4 py-3 bg-white border border-sf-grey/20 rounded-lg focus:border-sf-blue outline-none transition-colors font-body text-sf-text placeholder:text-sf-text-light/50"
+                   placeholder="Your company">
+          </div>
+          <div>
+            <label for="hw-phone" class="block text-base font-display font-bold text-sf-blue mb-1.5">Phone</label>
+            <input id="hw-phone" formControlName="phone" type="tel"
+                   class="w-full px-4 py-3 bg-white border border-sf-grey/20 rounded-lg focus:border-sf-blue outline-none transition-colors font-body text-sf-text placeholder:text-sf-text-light/50"
+                   placeholder="+353 ...">
+          </div>
+        </div>
+
+        <div>
+          <label for="hw-message" class="block text-base font-display font-bold text-sf-blue mb-1.5">Message *</label>
+          <textarea id="hw-message" formControlName="message" rows="4"
+                    class="w-full px-4 py-3 bg-white border border-sf-grey/20 rounded-lg focus:border-sf-blue outline-none transition-colors font-body text-sf-text resize-none placeholder:text-sf-text-light/50"
+                    placeholder="Tell us about your project..."></textarea>
+          @if (form.controls.message.touched && form.controls.message.errors) {
+            <p class="text-red-500 text-base mt-1.5 font-mono">Required field</p>
+          }
+        </div>
+
+        @if (error()) {
+          <div class="bg-red-500/5 border border-red-500/20 rounded-lg p-4 text-base text-red-500">
+            Something went wrong. Please try again or email us directly at
+            <a href="mailto:info@smartfactory.ie" class="font-bold hover:underline font-mono text-base">info&#64;smartfactory.ie</a>
+          </div>
+        }
+
+        <button type="submit" class="btn btn-primary w-full justify-center" [disabled]="sending()">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          {{ sending() ? 'SENDING...' : 'SUBMIT & DOWNLOAD' }}
+        </button>
+      </form>
+    </div>
+  </div>
+}

@@ -1,0 +1,64 @@
+@if (article(); as a) {
+  <!-- Hero strip for navbar background -->
+  <div class="hero-gradient -mt-16 pt-16">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+      <a routerLink="/articles" class="text-white/75 hover:text-white text-sm inline-flex items-center gap-2 transition-colors font-mono tracking-wide">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Articles
+      </a>
+      <span class="tech-label text-white/75">{{ a.createdAt | date:'mediumDate' }}</span>
+    </div>
+  </div>
+
+  <!-- Cover image -->
+  @if (a.imageUrl) {
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 animate-fade-in">
+      <div class="relative overflow-hidden rounded-lg">
+        <img [src]="a.imageUrl" [alt]="a.title" class="w-full h-auto block">
+      </div>
+    </div>
+  }
+
+  <!-- Title + Body -->
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-12">
+    <div class="flex flex-wrap gap-2 mb-5">
+      @for (tag of a.tags; track tag) {
+        <span class="tech-label text-sf-accent bg-sf-accent/8 border border-sf-accent/15 px-2.5 py-1">{{ tag }}</span>
+      }
+    </div>
+
+    <h1 class="font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-800 text-sf-blue leading-[1.15] mb-5">{{ a.title }}</h1>
+
+    <div class="flex items-center gap-4 mb-12">
+      <div class="w-8 h-0.5 bg-sf-accent"></div>
+      <span class="font-display text-base text-sf-text-mid tracking-wide">{{ a.author }}</span>
+    </div>
+
+    <article appScrollReveal>
+      <div class="article-prose" [innerHTML]="a.content"></div>
+    </article>
+
+    <div class="border-t border-sf-grey/20 pt-8 mt-16">
+      <a routerLink="/articles"
+         class="inline-flex items-center gap-3 text-sf-blue hover:text-sf-accent font-display font-bold text-sm tracking-wide transition-colors group">
+        <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        ALL ARTICLES
+      </a>
+    </div>
+  </div>
+} @else if (loading()) {
+  <section class="py-32 text-center bg-white">
+    <div class="flex items-center justify-center gap-3">
+      <span class="tech-label text-sf-text-light">Loading article</span>
+    </div>
+  </section>
+} @else {
+  <section class="py-32 text-center bg-white">
+    <h1 class="font-display text-2xl font-800 text-sf-blue mb-4">Article Not Found</h1>
+    <a routerLink="/articles" class="text-sf-blue hover:text-sf-accent transition-colors font-display text-sm tracking-wide">Back to Articles</a>
+  </section>
+}

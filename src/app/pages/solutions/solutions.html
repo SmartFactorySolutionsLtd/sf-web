@@ -9,7 +9,13 @@
 
     <div class="mt-10 animate-reveal-up delay-300 max-w-5xl mx-auto translate-y-12">
       <div class="relative shadow-2xl shadow-sf-blue/20 rounded-lg overflow-hidden">
-        <app-image-lightbox src="assets/waps/screenshots/dtvr.png" alt="WAPS Downtime Viewer — real-time production dashboard" imgClass="w-full" />
+        @for (shot of heroScreenshots; track shot.src; let i = $index) {
+          <img [src]="shot.src" [alt]="shot.alt"
+               class="w-full transition-all duration-700 ease-in-out"
+               [class]="activeScreenshot() === i
+                 ? 'relative opacity-100 scale-100'
+                 : 'absolute inset-0 opacity-0 scale-105'" />
+        }
       </div>
     </div>
   </div>

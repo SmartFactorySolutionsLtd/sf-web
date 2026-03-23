@@ -1,0 +1,81 @@
+app-article-detail .article-prose {
+  font-family: var(--font-body);
+  font-size: 1.35rem;
+  line-height: 1.9;
+  color: var(--color-sf-text-mid);
+}
+
+app-article-detail .article-prose > *:first-child {
+  margin-top: 0;
+}
+
+app-article-detail .article-prose h3 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-sf-blue);
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+  position: relative;
+  padding-left: 1rem;
+}
+
+app-article-detail .article-prose h3::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  bottom: 0.2em;
+  width: 3px;
+  background: var(--color-sf-blue);
+}
+
+app-article-detail .article-prose p {
+  color: var(--color-sf-text-mid);
+  margin-bottom: 1.25rem;
+}
+
+app-article-detail .article-prose ul {
+  margin: 1.25rem 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+app-article-detail .article-prose ul li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-sf-text-mid);
+}
+
+app-article-detail .article-prose ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 6px;
+  height: 6px;
+  background: var(--color-sf-blue);
+}
+
+app-article-detail .article-prose strong {
+  color: var(--color-sf-blue);
+  font-weight: 700;
+}
+
+app-article-detail .article-prose em {
+  font-style: italic;
+  color: var(--color-sf-blue);
+}
+
+app-article-detail .article-prose a {
+  color: var(--color-sf-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+app-article-detail .article-prose a:hover {
+  color: var(--color-sf-blue);
+}

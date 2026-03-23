@@ -66,34 +66,6 @@ body {
     linear-gradient(135deg, #1a6b94 0%, #0d496a 50%, #1a6b94 100%);
 }
 
-/* deprecated */
-/* ── Blueprint grid pattern ── */
-.blueprint-grid {
-  background-image:
-    linear-gradient(rgba(26, 107, 148, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(26, 107, 148, 0.08) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-
-.blueprint-grid-dense {
-  background-image:
-    linear-gradient(rgba(26, 107, 148, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(26, 107, 148, 0.05) 1px, transparent 1px),
-    linear-gradient(rgba(26, 107, 148, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(26, 107, 148, 0.1) 1px, transparent 1px);
-  background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
-}
-
-/* deprecated */
-/* ── Diagonal clip ── */
-.clip-diagonal {
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 60px), 0 100%);
-}
-
-.clip-diagonal-reverse {
-  clip-path: polygon(0 0, 100% 60px, 100% 100%, 0 100%);
-}
-
 /* ── Industrial accent bar ── */
 .accent-bar {
   position: relative;

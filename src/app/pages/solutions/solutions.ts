@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal, OnInit, OnDestroy } from '@angular/core';
 import { SectionHeader } from '../../shared/components/section-header/section-header';
 import { CtaBanner } from '../../shared/components/cta-banner/cta-banner';
 import { ScrollReveal } from '../../shared/directives/scroll-reveal';
@@ -11,7 +11,29 @@ import { WapsLogoAnimated } from '../../shared/components/waps-logo-animated/wap
   imports: [SectionHeader, CtaBanner, ScrollReveal, ScrollFocus, WapsLogoAnimated, ImageLightbox],
   templateUrl: './solutions.html',
 })
-export class Solutions {
+export class Solutions implements OnInit, OnDestroy {
+  activeScreenshot = signal(0);
+  private intervalId: ReturnType<typeof setInterval> | null = null;
+
+  heroScreenshots = [
+    { src: 'assets/waps/screenshots/dtvr.png', alt: 'WAPS Downtime Viewer — real-time production dashboard' },
+    { src: 'assets/waps/screenshots/grid-view.png', alt: 'WAPS Grid View — factory overview' },
+    { src: 'assets/waps/screenshots/energy.png', alt: 'WAPS Energy — consumption monitoring' },
+    { src: 'assets/waps/screenshots/map.png', alt: 'WAPS Map — site-wide visualisation' },
+    { src: 'assets/waps/screenshots/ddms.png', alt: 'WAPS DDMS — digital daily management' },
+    { src: 'assets/waps/screenshots/call-for-help.png', alt: 'WAPS Call-for-Help — operator assistance' },
+  ];
+
+  ngOnInit() {
+    this.intervalId = setInterval(() => {
+      this.activeScreenshot.set((this.activeScreenshot() + 1) % this.heroScreenshots.length);
+    }, 4000);
+  }
+
+  ngOnDestroy() {
+    if (this.intervalId) clearInterval(this.intervalId);
+  }
+
   capabilities = [
     {
       title: 'Design',

@@ -1,0 +1,26 @@
+<svg viewBox="0 0 1801.84 1201.39" class="w-full h-full">
+  <g transform="translate(-3.106,-2.608)">
+    <!-- Static body -->
+    <path fill="#0d496b" [attr.d]="bodyPath"/>
+    <path fill="#9eb6c4" [attr.d]="cogCircle"/>
+    <path fill="#0d496b" [attr.d]="topFrame"/>
+    <path fill="#0d496b" [attr.d]="rightFrame"/>
+    <rect fill="#0d496b" width="52.081" height="102.06" x="329.102" y="435.065" ry="0.453"/>
+
+    <!-- Signal arcs (fade in sequentially) -->
+    <g [attr.opacity]="arc1Opacity()">
+      <path fill="#0d496b" [attr.d]="arcInner"/>
+    </g>
+    <g [attr.opacity]="arc2Opacity()">
+      <path fill="#0d496b" [attr.d]="arcMid"/>
+    </g>
+    <g [attr.opacity]="arc3Opacity()">
+      <path fill="#0d496b" [attr.d]="arcOuter"/>
+    </g>
+
+    <!-- Graph line (radial reveal from center) -->
+    <g [attr.clip-path]="graphClip()">
+      <path fill="#0d496b" [attr.d]="graphLine"/>
+    </g>
+  </g>
+</svg>

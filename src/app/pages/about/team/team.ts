@@ -21,12 +21,13 @@ export class Team {
     {
       name: 'Engineering & Technical',
       members: [
+        { name: 'Ladislav Stefka', role: 'Tech-Lead', photo: 'assets/team/ladislav-stefka.jpg' },
         { name: 'Petr Kostka', role: 'Full-Stack Developer', photo: 'assets/team/petr-kostka.png' },
-        { name: 'Ladislav Stefka', role: 'Front-End Developer', photo: 'assets/team/ladislav-stefka.jpg' },
         { name: 'Dominik Brazdil', role: 'Front-End Developer', photo: 'assets/team/dominik-brazdil.jpg' },
         { name: 'Ramil Islamov', role: 'Back-end Developer', photo: 'assets/team/ramil-islamov.jpg' },
         { name: 'Jakub Pribyl', role: 'System Administrator', photo: 'assets/team/jakub-pribyl.png' },
         { name: 'Sunil Rullania', role: 'MES Developer', photo: 'assets/team/sunil-rullania.png' },
+        { name: 'Manish Patil', role: 'MES Developer', photo: 'assets/team/manish-patil.png' },
       ],
     },
     {

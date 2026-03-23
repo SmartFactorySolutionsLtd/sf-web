@@ -16,7 +16,7 @@ export class About {
   ];
 
   stats = [
-    { value: '20+', label: 'Years Delivering Automation' },
+    { value: '10+', label: 'Years Delivering Automation' },
     { value: '5-10%', label: 'Productivity Improvement' },
     { value: 'IIoT', label: 'Industry 4.0 Technology' },
   ];

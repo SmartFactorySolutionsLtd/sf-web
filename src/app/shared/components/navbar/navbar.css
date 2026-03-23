@@ -1,0 +1,10 @@
+:host { display: block; }
+.nav-top .nav-link { color: rgba(255,255,255,0.7); }
+.nav-top .nav-link:hover { color: white; }
+.nav-top .btn-outline { color: white; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,0.5); }
+.nav-top .btn-outline:hover { background: white; color: var(--color-sf-blue); box-shadow: inset 0 0 0 1.5px white; }
+.nav-scrolled .nav-link { color: var(--color-sf-text-mid); }
+.nav-scrolled .nav-link:hover { color: var(--color-sf-blue); }
+.nav-top .nav-active { color: white !important; }
+.dropdown-menu .nav-active { color: var(--color-sf-blue) !important; font-weight: 700; }
+.nav-scrolled .nav-active { color: var(--color-sf-blue) !important; font-weight: 700; }
