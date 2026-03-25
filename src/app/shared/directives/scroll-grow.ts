@@ -1,15 +1,18 @@
-import { Directive, ElementRef, OnInit, OnDestroy, NgZone } from '@angular/core';
+import { Directive, ElementRef, OnInit, OnDestroy, NgZone, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Directive({
   selector: '[appScrollGrow]',
 })
 export class ScrollGrow implements OnInit, OnDestroy {
+  private isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
   private raf = 0;
   private bound = this.onScroll.bind(this);
 
   constructor(private el: ElementRef<HTMLElement>, private zone: NgZone) {}
 
   ngOnInit() {
+    if (!this.isBrowser) return;
     this.el.nativeElement.style.transformOrigin = 'left';
     this.el.nativeElement.style.transition = 'transform 0.1s linear';
     this.el.nativeElement.style.transform = 'scaleX(0.3)';
@@ -34,6 +37,7 @@ export class ScrollGrow implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    if (!this.isBrowser) return;
     window.removeEventListener('scroll', this.bound);
     if (this.raf) cancelAnimationFrame(this.raf);
   }

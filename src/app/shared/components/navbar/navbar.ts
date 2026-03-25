@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, PLATFORM_ID, inject, signal } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 interface NavLink {
@@ -16,6 +17,7 @@ interface NavLink {
   host: { '(window:scroll)': 'onScroll()' }
 })
 export class Navbar {
+  private isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
   mobileOpen = signal(false);
   scrolled = signal(false);
 
@@ -36,6 +38,6 @@ export class Navbar {
   ];
 
   onScroll() {
-    this.scrolled.set(window.scrollY > 20);
+    if (this.isBrowser) this.scrolled.set(window.scrollY > 20);
   }
 }

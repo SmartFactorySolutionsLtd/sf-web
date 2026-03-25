@@ -1,9 +1,11 @@
-import { Directive, ElementRef, OnInit, OnDestroy, NgZone } from '@angular/core';
+import { Directive, ElementRef, OnInit, OnDestroy, NgZone, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Directive({
   selector: '[appScrollFocus]',
 })
 export class ScrollFocus implements OnInit, OnDestroy {
+  private isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
   private observer?: IntersectionObserver;
   private raf = 0;
   private listening = false;
@@ -11,6 +13,7 @@ export class ScrollFocus implements OnInit, OnDestroy {
   constructor(private el: ElementRef<HTMLElement>, private zone: NgZone) {}
 
   ngOnInit() {
+    if (!this.isBrowser) return;
     const host = this.el.nativeElement;
     host.style.opacity = '0';
     host.style.transform = 'translateY(30px)';
@@ -67,6 +70,7 @@ export class ScrollFocus implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    if (!this.isBrowser) return;
     this.observer?.disconnect();
     window.removeEventListener('scroll', this.onScroll);
     if (this.raf) cancelAnimationFrame(this.raf);

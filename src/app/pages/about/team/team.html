@@ -22,7 +22,7 @@
           @for (member of dept.members; track member.name; let i = $index) {
             <div class="bg-white border border-sf-grey/20 p-6 relative group hover:border-sf-blue/40 transition-all duration-300">
               <div class="aspect-square mb-4 overflow-hidden bg-sf-grey-light border border-sf-grey/20">
-                <img [src]="member.photo" [alt]="member.name" class="w-full h-full object-cover" />
+                <img [src]="member.photo" [alt]="member.name" class="w-full h-full object-cover" loading="lazy" />
               </div>
 
               <h3 class="font-display text-lg font-bold text-sf-blue">{{ member.name }}</h3>

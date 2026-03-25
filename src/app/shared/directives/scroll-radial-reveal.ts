@@ -1,9 +1,11 @@
-import { Directive, ElementRef, OnInit, OnDestroy, NgZone } from '@angular/core';
+import { Directive, ElementRef, OnInit, OnDestroy, NgZone, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Directive({
   selector: '[appScrollRadialReveal]',
 })
 export class ScrollRadialReveal implements OnInit, OnDestroy {
+  private isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
   private observer?: IntersectionObserver;
   private raf = 0;
   private listening = false;
@@ -11,6 +13,7 @@ export class ScrollRadialReveal implements OnInit, OnDestroy {
   constructor(private el: ElementRef<HTMLElement>, private zone: NgZone) {}
 
   ngOnInit() {
+    if (!this.isBrowser) return;
     const host = this.el.nativeElement;
     host.style.clipPath = 'circle(0% at 50% 50%)';
     host.style.willChange = 'clip-path';
@@ -61,6 +64,7 @@ export class ScrollRadialReveal implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    if (!this.isBrowser) return;
     this.observer?.disconnect();
     window.removeEventListener('scroll', this.onScroll);
     if (this.raf) cancelAnimationFrame(this.raf);

@@ -31,9 +31,9 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" [attr.d]="cat.icon"/>
             </svg>
           </div>
-          <span class="tech-label text-sf-blue/50 text-xs">{{ cat.label }}</span>
-          <h3 class="font-display font-bold text-sf-blue text-sm mt-1 mb-2">{{ cat.title }}</h3>
-          <p class="text-sm text-sf-text-mid leading-relaxed">{{ cat.description }}</p>
+          <span class="tech-label text-sf-blue/50">{{ cat.label }}</span>
+          <h3 class="font-display font-bold text-sf-blue text-base mt-1 mb-2">{{ cat.title }}</h3>
+          <p class="text-base text-sf-text-mid leading-relaxed">{{ cat.description }}</p>
         </div>
       }
     </div>
@@ -51,22 +51,22 @@
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
             <div class="p-8 sm:p-10 flex flex-col justify-center" [class]="i % 2 !== 0 ? 'lg:order-2' : ''">
               <div class="flex items-center gap-3 mb-4">
-                <span class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-sf-blue text-white font-display font-bold text-sm">{{ kit.number }}</span>
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-sf-blue text-white font-display font-bold text-base">{{ kit.number }}</span>
                 <div class="h-px flex-1 bg-sf-grey/20"></div>
               </div>
               <h3 class="font-display text-2xl font-800 text-sf-blue mb-3">{{ kit.title }}</h3>
               <p class="text-base text-sf-text-mid leading-relaxed mb-6">{{ kit.description }}</p>
               <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 @for (feat of kit.features; track feat) {
-                  <li class="flex items-start gap-2 text-sm text-sf-text-mid">
-                    <div class="w-1.5 h-1.5 rounded-full bg-sf-blue mt-1.5 shrink-0"></div>
+                  <li class="flex items-start gap-2 text-base text-sf-text-mid">
+                    <div class="w-1.5 h-1.5 rounded-full bg-sf-blue mt-3 shrink-0"></div>
                     {{ feat }}
                   </li>
                 }
               </ul>
             </div>
             <div class="bg-sf-grey-light flex items-center justify-center p-8 sm:p-12" [class]="i % 2 !== 0 ? 'lg:order-1' : ''">
-              <img [src]="kit.image" [alt]="'IIoT Toolkit ' + kit.number + ' — ' + kit.title" class="max-h-72 w-auto object-contain drop-shadow-lg" />
+              <img [src]="kit.image" [alt]="'IIoT Toolkit ' + kit.number + ' — ' + kit.title" class="max-h-72 w-auto object-contain drop-shadow-lg" loading="lazy" />
             </div>
           </div>
         </div>
@@ -85,12 +85,12 @@
         <div appScrollReveal class="group bg-white border border-sf-grey/15 rounded-xl overflow-hidden hover:border-sf-blue/20 hover:shadow-lg transition-all duration-300"
              [style.animation-delay.ms]="i * 100">
           <div class="h-48 bg-sf-grey-light flex items-center justify-center p-6 overflow-hidden">
-            <img [src]="item.image" [alt]="item.title" class="max-h-full w-auto object-contain group-hover:scale-105 transition-transform duration-500" />
+            <img [src]="item.image" [alt]="item.title" class="max-h-full w-auto object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" />
           </div>
           <div class="p-6">
-            <span class="tech-label text-sf-blue/50 text-xs">{{ item.subtitle }}</span>
+            <span class="tech-label text-sf-blue/50">{{ item.subtitle }}</span>
             <h3 class="font-display font-bold text-lg text-sf-blue mt-1 mb-2">{{ item.title }}</h3>
-            <p class="text-sm text-sf-text-mid leading-relaxed">{{ item.description }}</p>
+            <p class="text-base text-sf-text-mid leading-relaxed">{{ item.description }}</p>
           </div>
         </div>
       }
@@ -114,7 +114,7 @@
         <div appScrollReveal class="border border-white/10 rounded-xl p-6 hover:border-white/25 transition-colors"
              [style.animation-delay.ms]="i * 80">
           <h3 class="font-display font-bold text-white mb-2">{{ item.title }}</h3>
-          <p class="text-sm text-white/60 leading-relaxed">{{ item.description }}</p>
+          <p class="text-base text-white/60 leading-relaxed">{{ item.description }}</p>
         </div>
       }
     </div>

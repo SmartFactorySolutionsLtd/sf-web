@@ -22,7 +22,7 @@
   }
 
   <!-- Title + Body -->
-  <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-12">
+  <article class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-12">
     <div class="flex flex-wrap gap-2 mb-5">
       @for (tag of a.tags; track tag) {
         <span class="tech-label text-sf-accent bg-sf-accent/8 border border-sf-accent/15 px-2.5 py-1">{{ tag }}</span>
@@ -36,9 +36,9 @@
       <span class="font-display text-base text-sf-text-mid tracking-wide">{{ a.author }}</span>
     </div>
 
-    <article appScrollReveal>
+    <div appScrollReveal>
       <div class="article-prose" [innerHTML]="a.content"></div>
-    </article>
+    </div>
 
     <div class="border-t border-sf-grey/20 pt-8 mt-16">
       <a routerLink="/articles"
@@ -49,7 +49,7 @@
         ALL ARTICLES
       </a>
     </div>
-  </div>
+  </article>
 } @else if (loading()) {
   <section class="py-32 text-center bg-white">
     <div class="flex items-center justify-center gap-3">

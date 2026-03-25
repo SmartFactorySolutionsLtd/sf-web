@@ -30,6 +30,8 @@ jobs:
         env:
           CI: true
 
+      - run: cp dist/sf-web/browser/index.html dist/sf-web/browser/404.html
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist/sf-web/browser

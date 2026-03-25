@@ -1,14 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SectionHeader } from '../../../shared/components/section-header/section-header';
 import { CtaBanner } from '../../../shared/components/cta-banner/cta-banner';
 import { ScrollReveal } from '../../../shared/directives/scroll-reveal';
+import { SeoService } from '../../../core/services/seo.service';
 @Component({
   selector: 'app-team',
   imports: [RouterLink, SectionHeader, CtaBanner, ScrollReveal],
   templateUrl: './team.html',
 })
 export class Team {
+  constructor() {
+    inject(SeoService).updatePage({
+      title: 'Our Team',
+      description: 'Meet the SmartFactory team — engineering, leadership, and administration driving IIoT innovation in manufacturing.',
+      url: '/about/team',
+    });
+  }
   departments = [
     {
       name: 'Executive Leadership',

@@ -1,14 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SectionHeader } from '../../shared/components/section-header/section-header';
 import { CtaBanner } from '../../shared/components/cta-banner/cta-banner';
 import { ScrollReveal } from '../../shared/directives/scroll-reveal';
+import { SeoService } from '../../core/services/seo.service';
 @Component({
   selector: 'app-about',
   imports: [RouterLink, SectionHeader, CtaBanner, ScrollReveal],
   templateUrl: './about.html',
 })
 export class About {
+  constructor() {
+    inject(SeoService).updatePage({
+      title: 'About SmartFactory',
+      description: '10+ years delivering IIoT automation and digital transformation for manufacturing. OPC architecture, wireless sensors, digital workflows, and smart displays.',
+      url: '/about',
+      jsonLd: { '@context': 'https://schema.org', '@type': 'AboutPage', name: 'About SmartFactory' },
+    });
+  }
   subPages = [
     { path: '/about/team', label: 'Meet the Team' },
     { path: '/about/partners', label: 'Partners' },

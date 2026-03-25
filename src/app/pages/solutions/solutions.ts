@@ -1,10 +1,12 @@
-import { Component, signal, OnInit, OnDestroy } from '@angular/core';
+import { Component, PLATFORM_ID, inject, signal, OnInit, OnDestroy } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { SectionHeader } from '../../shared/components/section-header/section-header';
 import { CtaBanner } from '../../shared/components/cta-banner/cta-banner';
 import { ScrollReveal } from '../../shared/directives/scroll-reveal';
 import { ScrollFocus } from '../../shared/directives/scroll-focus';
 import { ImageLightbox } from '../../shared/components/image-lightbox/image-lightbox';
 import { WapsLogoAnimated } from '../../shared/components/waps-logo-animated/waps-logo-animated';
+import { SeoService } from '../../core/services/seo.service';
 
 @Component({
   selector: 'app-solutions',
@@ -12,6 +14,8 @@ import { WapsLogoAnimated } from '../../shared/components/waps-logo-animated/wap
   templateUrl: './solutions.html',
 })
 export class Solutions implements OnInit, OnDestroy {
+  private seo = inject(SeoService);
+  private isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
   activeScreenshot = signal(0);
   private intervalId: ReturnType<typeof setInterval> | null = null;
 
@@ -25,9 +29,23 @@ export class Solutions implements OnInit, OnDestroy {
   ];
 
   ngOnInit() {
-    this.intervalId = setInterval(() => {
-      this.activeScreenshot.set((this.activeScreenshot() + 1) % this.heroScreenshots.length);
-    }, 4000);
+    this.seo.updatePage({
+      title: 'WAPS - Production Monitoring Software',
+      description: 'WAPS platform for real-time OEE tracking, downtime analysis, energy monitoring, and manufacturing analytics. Integrates with Power BI, SAP, PAS-X, and Oracle.',
+      url: '/solutions',
+      jsonLd: {
+        '@context': 'https://schema.org', '@type': 'SoftwareApplication',
+        name: 'WAPS - Work Area Performance System', applicationCategory: 'BusinessApplication',
+        operatingSystem: 'Web', description: 'IIoT manufacturing intelligence platform',
+        offers: { '@type': 'Offer', availability: 'https://schema.org/InStock' },
+      },
+    });
+
+    if (this.isBrowser) {
+      this.intervalId = setInterval(() => {
+        this.activeScreenshot.set((this.activeScreenshot() + 1) % this.heroScreenshots.length);
+      }, 3000);
+    }
   }
 
   ngOnDestroy() {

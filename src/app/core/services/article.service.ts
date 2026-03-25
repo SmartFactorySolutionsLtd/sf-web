@@ -1,4 +1,5 @@
-import { Injectable, signal, computed } from '@angular/core';
+import { Injectable, PLATFORM_ID, inject, signal, computed } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { Article } from '../models/article.model';
 import { environment } from '../../../environments/environment';
 
@@ -24,6 +25,7 @@ const CACHE_TTL = 5 * 60 * 1000; // 5 min
 
 @Injectable({ providedIn: 'root' })
 export class ArticleService {
+  private isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
   private articlesSignal = signal<Article[]>([]);
   private loadedSignal = signal(false);
 
@@ -37,7 +39,11 @@ export class ArticleService {
   );
 
   constructor() {
-    this.loadArticles();
+    if (this.isBrowser) {
+      this.loadArticles();
+    } else {
+      this.loadedSignal.set(true);
+    }
   }
 
   getBySlug(slug: string): Article | undefined {
@@ -79,6 +85,7 @@ export class ArticleService {
   }
 
   private readCache(): Article[] | null {
+    if (!this.isBrowser) return null;
     try {
       const raw = sessionStorage.getItem(CACHE_KEY);
       if (!raw) return null;
@@ -91,6 +98,7 @@ export class ArticleService {
   }
 
   private writeCache(articles: Article[]) {
+    if (!this.isBrowser) return;
     try {
       sessionStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), data: articles }));
     } catch { /* quota exceeded — ignore */ }

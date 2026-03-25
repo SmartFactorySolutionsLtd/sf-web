@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SectionHeader } from '../../../shared/components/section-header/section-header';
 import { CtaBanner } from '../../../shared/components/cta-banner/cta-banner';
 import { ScrollReveal } from '../../../shared/directives/scroll-reveal';
+import { SeoService } from '../../../core/services/seo.service';
 
 @Component({
   selector: 'app-partners',
@@ -10,6 +11,13 @@ import { ScrollReveal } from '../../../shared/directives/scroll-reveal';
   templateUrl: './partners.html',
 })
 export class Partners {
+  constructor() {
+    inject(SeoService).updatePage({
+      title: 'Technology Partners',
+      description: 'SmartFactory partners with Siemens, Turck Banner, LineSpex, Rittal, and NDS for world-class IIoT and manufacturing solutions.',
+      url: '/about/partners',
+    });
+  }
   partners = [
     {
       name: 'Siemens',

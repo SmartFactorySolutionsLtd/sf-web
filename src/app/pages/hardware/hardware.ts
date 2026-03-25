@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 import { environment } from '../../../environments/environment';
@@ -6,6 +6,7 @@ import { CtaBanner } from '../../shared/components/cta-banner/cta-banner';
 import { SectionHeader } from '../../shared/components/section-header/section-header';
 import { ScrollReveal } from '../../shared/directives/scroll-reveal';
 import { ScrollFocus } from '../../shared/directives/scroll-focus';
+import { SeoService } from '../../core/services/seo.service';
 
 @Component({
   selector: 'app-hardware',
@@ -14,6 +15,15 @@ import { ScrollFocus } from '../../shared/directives/scroll-focus';
 })
 export class Hardware {
   private fb = new FormBuilder();
+
+  constructor() {
+    inject(SeoService).updatePage({
+      title: 'IIoT Hardware & Smart Sensors',
+      description: 'Industrial IoT toolkits, wireless sensors, condition monitoring, energy meters, RTLS, Pick-to-Light, and OPC UA connectivity solutions for manufacturing.',
+      url: '/hardware',
+      jsonLd: { '@context': 'https://schema.org', '@type': 'WebPage', name: 'IIoT Hardware & Smart Sensors', description: 'Industrial IoT hardware solutions for smart manufacturing' },
+    });
+  }
 
   showModal = signal(false);
   submitted = signal(false);

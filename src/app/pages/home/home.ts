@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, PLATFORM_ID, inject, signal } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { SectionHeader } from '../../shared/components/section-header/section-header';
 import { CtaBanner } from '../../shared/components/cta-banner/cta-banner';
@@ -6,6 +7,7 @@ import { LatestUpdates } from '../../widgets/latest-updates/latest-updates';
 import { ScrollReveal } from '../../shared/directives/scroll-reveal';
 import { ScrollGrow } from '../../shared/directives/scroll-grow';
 import { ImageLightbox } from '../../shared/components/image-lightbox/image-lightbox';
+import { SeoService } from '../../core/services/seo.service';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +21,8 @@ import { ImageLightbox } from '../../shared/components/image-lightbox/image-ligh
   },
 })
 export class Home {
+  private seo = inject(SeoService);
+  private isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
   heroLoaded = signal(false);
   activeTestimonial = 0;
   testimonialInterval: ReturnType<typeof setInterval> | null = null;
@@ -48,10 +52,22 @@ export class Home {
   ];
 
   ngOnInit() {
+    this.seo.updatePage({
+      title: 'Manufacturing Intelligence Platform',
+      description: 'SmartFactory WAPS delivers real-time production monitoring, OEE tracking, downtime analysis, and energy management for Industry 4.0 manufacturers.',
+      url: '/',
+      jsonLd: { '@context': 'https://schema.org', '@type': 'WebPage', name: 'SmartFactory - Manufacturing Intelligence Platform', description: 'IIoT and Industry 4.0 solutions for manufacturing' },
+    });
+
+    if (!this.isBrowser) {
+      this.heroLoaded.set(true);
+      return;
+    }
+
     const img = new Image();
     img.src = 'assets/graphics/hero-factory.jpg';
     img.onload = () => this.heroLoaded.set(true);
-    img.onerror = () => this.heroLoaded.set(true); // show page even if image fails
+    img.onerror = () => this.heroLoaded.set(true);
 
     this.testimonialInterval = setInterval(() => {
       this.activeTestimonial = (this.activeTestimonial + 1) % this.testimonials.length;

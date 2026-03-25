@@ -1,7 +1,8 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 import { environment } from '../../../environments/environment';
+import { SeoService } from '../../core/services/seo.service';
 @Component({
   selector: 'app-contact',
   imports: [ReactiveFormsModule],
@@ -9,6 +10,15 @@ import { environment } from '../../../environments/environment';
 })
 export class Contact {
   private fb = new FormBuilder();
+
+  constructor() {
+    inject(SeoService).updatePage({
+      title: 'Contact Us',
+      description: 'Get in touch with SmartFactory for a demo or consultation on IIoT and manufacturing intelligence solutions.',
+      url: '/contact',
+      jsonLd: { '@context': 'https://schema.org', '@type': 'ContactPage', name: 'Contact SmartFactory' },
+    });
+  }
   submitted = signal(false);
   sending = signal(false);
   error = signal(false);
