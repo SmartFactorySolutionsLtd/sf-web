@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 
-const SITE_URL = 'https://smartfactory.ie';
+const SITE_URL = 'https://smartfactorysolutionsltd.github.io/sf-web';
 const SITE_NAME = 'SmartFactory';
 const DEFAULT_IMAGE = `${SITE_URL}/assets/graphics/hero-factory.jpg`;
 

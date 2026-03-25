@@ -37,7 +37,7 @@ export class ArticleDetail {
           '@context': 'https://schema.org', '@type': 'BlogPosting',
           headline: a.title, description: a.summary, image: a.imageUrl,
           author: { '@type': 'Person', name: a.author },
-          publisher: { '@type': 'Organization', name: 'SmartFactory', url: 'https://smartfactory.ie' },
+          publisher: { '@type': 'Organization', name: 'SmartFactory', url: 'https://smartfactorysolutionsltd.github.io/sf-web' },
           datePublished: a.createdAt, dateModified: a.updatedAt,
         },
       });

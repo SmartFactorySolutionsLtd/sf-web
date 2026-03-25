@@ -17,15 +17,15 @@ export class App {
         '@context': 'https://schema.org',
         '@type': 'Organization',
         name: 'SmartFactory',
-        url: 'https://smartfactory.ie',
-        logo: 'https://smartfactory.ie/assets/logos/smartfactory-logo.png',
+        url: 'https://smartfactorysolutionsltd.github.io/sf-web',
+        logo: 'https://smartfactorysolutionsltd.github.io/sf-web/assets/logos/smartfactory-logo.png',
         description: 'Manufacturing intelligence and IIoT solutions for Industry 4.0',
       },
       {
         '@context': 'https://schema.org',
         '@type': 'WebSite',
         name: 'SmartFactory',
-        url: 'https://smartfactory.ie',
+        url: 'https://smartfactorysolutionsltd.github.io/sf-web',
       },
     ]);
   }
