@@ -14,6 +14,11 @@ export class Careers {
       title: 'Careers',
       description: 'Join SmartFactory — careers in IIoT, manufacturing intelligence, and Industry 4.0 solutions.',
       url: '/about/careers',
+      breadcrumbs: [
+        { name: 'Home', url: '/' },
+        { name: 'Company', url: '/about' },
+        { name: 'Careers', url: '/about/careers' },
+      ],
     });
   }
 }

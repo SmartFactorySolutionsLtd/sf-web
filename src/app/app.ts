@@ -1,4 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { Component, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { Navbar } from './shared/components/navbar/navbar';
 import { Footer } from './shared/components/footer/footer';
@@ -12,7 +13,15 @@ import { SeoService } from './core/services/seo.service';
 })
 export class App {
   constructor() {
-    inject(SeoService).setGlobalJsonLd([
+    const seo = inject(SeoService);
+
+    if (isPlatformBrowser(inject(PLATFORM_ID))) {
+      seo.setSpeculationRules({
+        prerender: [{ where: { href_matches: ['/solutions', '/hardware', '/about', '/articles', '/contact'] } }],
+      });
+    }
+
+    seo.setGlobalJsonLd([
       {
         '@context': 'https://schema.org',
         '@type': 'Organization',

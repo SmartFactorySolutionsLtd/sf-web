@@ -16,6 +16,11 @@ export class Partners {
       title: 'Technology Partners',
       description: 'SmartFactory partners with Siemens, Turck Banner, LineSpex, Rittal, and NDS for world-class IIoT and manufacturing solutions.',
       url: '/about/partners',
+      breadcrumbs: [
+        { name: 'Home', url: '/' },
+        { name: 'Company', url: '/about' },
+        { name: 'Partners', url: '/about/partners' },
+      ],
     });
   }
   partners = [

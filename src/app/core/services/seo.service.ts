@@ -6,12 +6,18 @@ const SITE_URL = 'https://smartfactorysolutionsltd.github.io/sf-web';
 const SITE_NAME = 'SmartFactory';
 const DEFAULT_IMAGE = `${SITE_URL}/assets/graphics/hero-factory.jpg`;
 
+export interface Breadcrumb {
+  name: string;
+  url: string;
+}
+
 export interface SeoConfig {
   title: string;
   description: string;
   url: string;
   image?: string;
   type?: string;
+  breadcrumbs?: Breadcrumb[];
   jsonLd?: Record<string, any> | Record<string, any>[];
 }
 
@@ -49,8 +55,24 @@ export class SeoService {
     this.updateCanonical(absoluteUrl);
 
     // JSON-LD
+    const schemas: Record<string, any>[] = [];
     if (config.jsonLd) {
-      this.setPageJsonLd(config.jsonLd);
+      schemas.push(...(Array.isArray(config.jsonLd) ? config.jsonLd : [config.jsonLd]));
+    }
+    if (config.breadcrumbs?.length) {
+      schemas.push({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: config.breadcrumbs.map((b, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: b.name,
+          item: `${SITE_URL}${b.url}`,
+        })),
+      });
+    }
+    if (schemas.length) {
+      this.setPageJsonLd(schemas);
     } else {
       this.removePageJsonLd();
     }
@@ -80,6 +102,17 @@ export class SeoService {
 
   private removePageJsonLd() {
     this.doc.getElementById('page-jsonld')?.remove();
+  }
+
+  setSpeculationRules(rules: object) {
+    let el = this.doc.getElementById('speculation-rules') as HTMLScriptElement | null;
+    if (!el) {
+      el = this.doc.createElement('script');
+      el.id = 'speculation-rules';
+      el.type = 'speculationrules';
+      this.doc.body.appendChild(el);
+    }
+    el.textContent = JSON.stringify(rules);
   }
 
   private updateCanonical(url: string) {

@@ -33,6 +33,11 @@ export class ArticleDetail {
         url: `/articles/${a.slug}`,
         image: a.imageUrl || undefined,
         type: 'article',
+        breadcrumbs: [
+          { name: 'Home', url: '/' },
+          { name: 'Articles', url: '/articles' },
+          { name: a.title, url: `/articles/${a.slug}` },
+        ],
         jsonLd: {
           '@context': 'https://schema.org', '@type': 'BlogPosting',
           headline: a.title, description: a.summary, image: a.imageUrl,

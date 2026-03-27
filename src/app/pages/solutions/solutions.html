@@ -11,6 +11,7 @@
       <div class="relative shadow-2xl shadow-sf-blue/20 rounded-lg overflow-hidden">
         @for (shot of heroScreenshots; track shot.src; let i = $index) {
           <img [src]="shot.src" [alt]="shot.alt"
+               [attr.fetchpriority]="i === 0 ? 'high' : 'auto'"
                class="w-full transition-all duration-700 ease-in-out"
                [class]="activeScreenshot() === i
                  ? 'relative opacity-100 scale-100'

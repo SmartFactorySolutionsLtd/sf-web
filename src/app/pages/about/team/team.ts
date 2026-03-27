@@ -13,6 +13,11 @@ export class Team {
   constructor() {
     inject(SeoService).updatePage({
       title: 'Our Team',
+      breadcrumbs: [
+        { name: 'Home', url: '/' },
+        { name: 'Company', url: '/about' },
+        { name: 'Team', url: '/about/team' },
+      ],
       description: 'Meet the SmartFactory team — engineering, leadership, and administration driving IIoT innovation in manufacturing.',
       url: '/about/team',
     });
